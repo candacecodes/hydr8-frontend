@@ -13,7 +13,7 @@ body{
 
 .box{
     width: 75px;
-    height: 75px;
+    height: 150px;
     border: 2px solid white;
     border-radius: 0.3em;
     position: relative;
@@ -24,7 +24,7 @@ body{
 
 .wave{
     width: 150px;
-    height: 150px;
+    height: 200px; /* where wave height is controlled */ 
     position: absolute;
     left: -50%;
     bottom: -190%;

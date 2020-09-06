@@ -1,0 +1,71 @@
+ html,
+
+body{
+    height: 100%;
+    background: #444;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    width: 75px;
+    height: 75px;
+    border: 2px solid white;
+    border-radius: 0.3em;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 0px 40px black;
+    transform: scale(2);
+}
+
+.wave{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: -50%;
+    bottom: -190%;
+    border-radius: 33%;
+    transition: all 1.4s linear; 
+    animation: waves 2.4s linear infinite;
+}
+
+.lightblue{
+    background: linear-gradient(to right, #eaecc6, #2bc034);
+}
+
+@keyframes waves{
+    0%{
+        transform: rotate(0);
+        border-radius: 30%;
+        bottom: -170px;
+    }
+    45%{
+        border-radius: 39%;
+    }
+    100%{
+        transform: rotate(360deg);
+        border-radius: 30%;
+        bottom: -80px;
+    }
+}
+
+.hilt{
+    width:120px;
+    height: 90px;
+    margin-left: 35px;
+    background:red; 
+    overflow: hidden;
+}
+
+.handle{
+    width: 120px;
+    height: 70px;
+    border: 8px solid #eee;
+    border-radius: 4em;
+    border-left: none;
+    transform: translateX(-60x)
+} 

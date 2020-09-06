@@ -5,7 +5,6 @@ info.innerHTML =
     Name: <br>
     Age: <br>
     Gender: <br>
-    Activity Level: <br>
     Water Goal: <br>
     </center>
 `

@@ -10,16 +10,16 @@
     clear: both;
   }
 
-  body{
+body{
     height: 100%;
     background:lightblue;
 }
 
 body{
-    /* display: flex; */
+   display: flex; 
     justify-content: center;
     align-items: center;
-}
+} 
 
 .box{
     width: 75px;

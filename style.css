@@ -34,7 +34,8 @@ body{
 }
 
 .lightblue{
-    background: linear-gradient(to right, #eaecc6, #2bc034);
+    background: linear-gradient(to right, #eaecc6, lightblue
+    );
 }
 
 @keyframes waves{

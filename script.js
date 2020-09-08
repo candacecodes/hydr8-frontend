@@ -63,7 +63,7 @@ const renderWaterCups = (user) => {
 const editProfile = (e, user) => {
   console.log(user);
   let profile = document.getElementById("profile-content");
-  let info = document.createElement("div");
+  let info = document.createElement("form");
   let editBtn = document.createElement("button");
   editBtn.innerText = "Submit Update";
   profile.innerText = "Update Profile";
@@ -114,10 +114,11 @@ const editProfile = (e, user) => {
   //       </form></center>`;
 
   profile.appendChild(info);
-  profile.addEventListener("submit", (e) => updateProfile(e, user));
+  //   let submit = document.getElementById("submit");
+  info.addEventListener("submit", (e) => updateProfile(e, user));
 };
 
 const updateProfile = (e, user) => {
   e.preventDefault();
-  console.log(hi);
+  console.log(user);
 };

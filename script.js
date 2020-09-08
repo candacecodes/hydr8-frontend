@@ -27,7 +27,8 @@ const login = () => {
             return_value = true;
             landingDiv.innerText = `Login successful, welcome ${user.name}.`;
 
-            renderWaterCups(foundUser); // finds matching waterCups with userID
+            renderProfile(foundUser); // loads user profile information
+            findWaterCups(foundUser); // finds matching waterCups with userID
           }
         });
         if (!foundUser) {
@@ -43,7 +44,7 @@ const login = () => {
 
 //signup function
 
-const renderWaterCups = (user) => {
+const renderProfile = (user) => {
   console.log(user);
   let profile = document.getElementById("profile-content");
   let info = document.createElement("div");
@@ -65,7 +66,7 @@ const renderWaterCups = (user) => {
 };
 
 const editProfile = (e, user) => {
-  console.log(user);
+  //   console.log(user);
   let profile = document.getElementById("profile-content");
   let info = document.createElement("form");
   let editBtn = document.createElement("button");
@@ -94,29 +95,6 @@ const editProfile = (e, user) => {
       
     </form>`;
 
-  //   info.innerHTML = `
-  //     <div id="updateprofile">
-  //     <center>
-  //         <label for="fdate">Name:</label>
-  //         <input type="text" id="fdate" name="fdate" value="">
-  //         <br>
-
-  //         <label for="fage">Age: </label>
-  //         <select id="fage" name="fage" value=""></select>
-  //         <br>
-
-  //         <label for="fgender">Gender: </label>
-  //         <select id="fgender" name="fgender" value=""></select>
-  //         <br>
-
-  //         <label for="fwatergoal">Water Goal: </label>
-  //         <select id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
-  //         <br><br>
-
-  //         <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
-
-  //       </form></center>`;
-
   profile.appendChild(info);
   //   let submit = document.getElementById("submit");
   info.addEventListener("submit", (e) => updateProfile(e, user));
@@ -124,7 +102,7 @@ const editProfile = (e, user) => {
 
 const updateProfile = (e, user) => {
   e.preventDefault();
-  console.log(user);
+  //   console.log(user);
 
   let data = {
     name: e.target.fname.value,
@@ -143,5 +121,31 @@ const updateProfile = (e, user) => {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((json) => renderWaterCups(json));
+    .then((json) => renderProfile(json));
+};
+
+// WaterCup Info
+const renderWaterCups = (user) => {
+  document.querySelector(".content");
+  //   console.log(user);
+};
+
+const findWaterCups = (user) => {
+  fetch(`http://localhost:3000/water_cups`)
+    .then((res) => res.json())
+    .then((json) => {
+      let div = document.querySelector(".content");
+      div.innerHTML = "";
+      let render = false;
+      json.forEach((watercup) => {
+        if (watercup.user_id == user.id) {
+          fetch(`http://localhost:3000/water_cups/${watercup.id}`)
+            .then((res) => res.json())
+            .then((json) => {
+              console.log(json);
+              //   renderAppointments(json, user); // puts appts onto appointment list
+            });
+        }
+      });
+    });
 };

@@ -44,7 +44,7 @@ const renderWaterCups = (e) => {
   console.log(e);
   let profile = document.getElementById("profile");
   let info = document.createElement("div");
-  let submitBtn = document.createElement("btn");
+  let submitBtn = document.createElement("button");
   info.innerHTML = `
             <center>
              Name: ${e.name}<br>
@@ -54,7 +54,39 @@ const renderWaterCups = (e) => {
             </center>
          `;
   profile.appendChild(info);
-  profile.appendChild(submitBtn);
+  info.appendChild(submitBtn);
 
-  submitBtn.addEventListener("click", (e) => editProfile(e));
+  info.addEventListener("submit", (e) => editProfile(e));
 };
+
+const editProfile = (e) => {
+    console.log(e)
+
+    // <div class="updateprofile" id="updateprofileinfo">
+    // <center>
+    //   <h4 id="name">Update Profile</h4>
+    //     <label for="fdate">Name:</label> 
+    //     <input type="text" id="fdate" name="fdate" value="">
+    //     <br>
+        
+    //     <label for="fage">Age: </label>
+    //     <select id="fage" name="fage" value=""></select>
+    //     <br>
+
+    //     <label for="fgender">Gender: </label>
+    //     <select id="fgender" name="fgender" value=""></select>
+    //     <br>
+
+    //     <label for="fwatergoal">Water Goal: </label>
+    //     <select id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
+    //     <br>
+
+        
+    //     <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
+        
+    //   </form> </center><br><br>
+    //     </div>
+    //   </div>
+
+
+}

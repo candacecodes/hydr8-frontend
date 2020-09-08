@@ -49,8 +49,10 @@ const renderProfile = (user) => {
   let profile = document.getElementById("profile-content");
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
+  let addDrinkBtn = document.createElement("button"); // can add this somewhere else
   editBtn.innerText = "Edit Profile";
   profile.innerHTML = `Your Profile`;
+  addDrinkBtn.innerText = "Add drink";
   info.innerHTML = `
             <center>
              Name: ${user.name}<br>
@@ -61,8 +63,10 @@ const renderProfile = (user) => {
          `;
   profile.appendChild(info);
   info.appendChild(editBtn);
+  profile.appendChild(addDrinkBtn);
 
   info.addEventListener("click", (e) => editProfile(e, user));
+  addDrinkBtn.addEventListener("click", (e) => addDrink(e, user)); // can move this elsewhere with btn
 };
 
 const editProfile = (e, user) => {
@@ -186,7 +190,7 @@ const deleteDrink = (e, watercups, user) => {
 //backend for add drink
 const addDrink = (e, user) => {
   let data = {
-    amount: "1",
+    amount: 1,
     user_id: user.id,
   };
 
@@ -200,5 +204,5 @@ const addDrink = (e, user) => {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((json) => console.log(json));
+    .then((json) => renderWaterCups(json));
 };

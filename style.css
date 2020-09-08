@@ -4,7 +4,7 @@
 	margin-top: 20px;
 	width: 35%;
 	padding-top: 30px;
-	padding-bottom: 10pxpx;
+	padding-bottom: 10px;
 	
 }
 
@@ -40,7 +40,7 @@ body{
 .box{
     width: 90px;
     height: 90px;
-    border: 2px solid white;
+    border: 2px solid lightblue;
     border-radius: 10em;
     position: relative;
     overflow: hidden;
@@ -64,8 +64,7 @@ body{
 }
 
 .lightblue{
-    background: linear-gradient(to right, lightblue, blue
-    );
+    background: lightblue;
     animation-fill-mode: forwards;
 }
 
@@ -76,16 +75,15 @@ body{
         border-radius: 30%;
         bottom: -170px;
     }
-    45%{
+    50%{
+        bottom: -150px;
         border-radius: 39%;
     }
     100%{
         transform: rotate(180deg);
         border-radius: 30%;
-        bottom: -110px;
+        bottom: -170px;
     }
+    
 }
 
-#profile {
-    margin-right: 60%;
-}

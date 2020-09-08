@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 });
 
 let user;
+let waterGoal = document.createElement("h1");
+waterGoal.id = "waterRemainder";
 
 // login function
 const login = () => {
@@ -46,10 +48,13 @@ const login = () => {
 
 const renderProfile = (user) => {
   console.log(user);
+  let waterBottleContainer = document.getElementById("water-bottle-container");
   let profile = document.getElementById("profile-content");
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
   let addDrinkBtn = document.createElement("button"); // can add this somewhere else
+
+  waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";
   profile.innerHTML = `Your Profile`;
   addDrinkBtn.innerText = "Add drink";
@@ -63,7 +68,8 @@ const renderProfile = (user) => {
          `;
   profile.appendChild(info);
   info.appendChild(editBtn);
-  profile.appendChild(addDrinkBtn);
+  waterBottleContainer.appendChild(addDrinkBtn);
+  waterBottleContainer.prepend(waterGoal);
 
   info.addEventListener("click", (e) => editProfile(e, user));
   addDrinkBtn.addEventListener("click", (e) => addDrink(e, user)); // can move this elsewhere with btn
@@ -183,12 +189,15 @@ const deleteDrink = (e, watercups, user) => {
     method: "DELETE",
   }).then((res) => {
     let deleteThisWaterCup = document.getElementById(`${watercups.id}`);
-    deleteThisWaterCup.innerText = "deleted watercup";
+    deleteThisWaterCup.innerText = "";
+    // deleteThisWaterCup.innerText = "deleted watercup";
   });
 };
 
 //backend for add drink
 const addDrink = (e, user) => {
+  waterGoal.innerHTML = `<center>Water Remaining: <br> ${(user.watergoal -= 1)} Cups </br><br></center>`;
+
   let data = {
     amount: 1,
     user_id: user.id,
@@ -205,4 +214,16 @@ const addDrink = (e, user) => {
   })
     .then((res) => res.json())
     .then((json) => renderWaterCups(json));
+
+  increaseWaterVisual();
+};
+
+const increaseWaterVisual = () => {
+  // grab CSS property and increment .water[height] by ~10px each time
+  let water = document.querySelector(".water");
+  let height = parseInt(water.style.height);
+  console.log(water);
+  console.log(height);
+  height += 10;
+  water.style.height = `${height}px;`;
 };

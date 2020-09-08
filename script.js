@@ -125,27 +125,33 @@ const updateProfile = (e, user) => {
 };
 
 // WaterCup Info
-const renderWaterCups = (user) => {
-  document.querySelector(".content");
-  //   console.log(user);
-};
 
 const findWaterCups = (user) => {
+  // fetch to find watercups
   fetch(`http://localhost:3000/water_cups`)
     .then((res) => res.json())
     .then((json) => {
       let div = document.querySelector(".content");
-      div.innerHTML = "";
-      let render = false;
+      //   div.innerHTML = "";
+      //   let render = false;
       json.forEach((watercup) => {
         if (watercup.user_id == user.id) {
           fetch(`http://localhost:3000/water_cups/${watercup.id}`)
             .then((res) => res.json())
             .then((json) => {
-              console.log(json);
+              renderWaterCups(json);
               //   renderAppointments(json, user); // puts appts onto appointment list
             });
         }
       });
     });
+};
+
+const renderWaterCups = (watercups) => {
+  // render watercups onto DOM
+  let div = document.querySelector(".content");
+  //   console.log(div);
+  let cup = document.createElement("p");
+  cup.innerHTML = `${watercups.amount}`;
+  div.appendChild(cup);
 };

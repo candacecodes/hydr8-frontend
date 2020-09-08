@@ -148,10 +148,13 @@ const findWaterCups = (user) => {
 };
 
 const renderWaterCups = (watercups) => {
+  console.log(watercups);
   // render watercups onto DOM
-  let div = document.querySelector(".content");
-  //   console.log(div);
+  // need to change .content in html to a better location to append stuff
+  let content = document.querySelector(".content"); // for waterbottle
+  let div = document.createElement("div");
   let cup = document.createElement("p");
   cup.innerHTML = `${watercups.amount}`;
   div.appendChild(cup);
+  content.appendChild(div);
 };

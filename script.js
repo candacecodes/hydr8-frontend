@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 let user;
 
+// login function
 const login = () => {
   let return_value = false;
   let loginForm = document.getElementById("login-form");
@@ -39,6 +40,8 @@ const login = () => {
       });
   });
 };
+
+//signup function
 
 const renderWaterCups = (user) => {
   console.log(user);

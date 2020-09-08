@@ -70,11 +70,11 @@ const editProfile = (e, user) => {
   //   info.innerHTML = ``;
 
   info.innerHTML = `
-      <label for="fdate">Name:</label> 
-      <input type="text" id="fdate" name="fdate" value="">
+      <label for="fname">Name:</label> 
+      <input type="text" id="fname" name="fname" value="">
       <br>
       
-      <label for="fage">Age: </label>
+      <label for="fage">Age (Int): </label>
       <input type="text" id="fage" name="fage" value=""></select>
       <br>
 
@@ -82,7 +82,7 @@ const editProfile = (e, user) => {
       <input type="text" id="fgender" name="fgender" value=""></select>
       <br>
 
-      <label for="fwatergoal">Water Goal: </label>
+      <label for="fwatergoal">Water Goal (Int): </label>
       <input type="text" id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
       <br><br>
 
@@ -121,4 +121,26 @@ const editProfile = (e, user) => {
 const updateProfile = (e, user) => {
   e.preventDefault();
   console.log(user);
+
+  let data = {
+    name: e.target.fname.value,
+    age: e.target.fage.value,
+    gender: e.target.fgender.value,
+    watergoal: e.target.fwatergoal.value,
+  };
+
+  fetch(`http://localhost:3000/users/${user.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((json) => console.log(json));
+
+  //   resetForm();
+  //   findAppointments(user);
 };

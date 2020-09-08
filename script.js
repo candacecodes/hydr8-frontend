@@ -46,6 +46,7 @@ const renderWaterCups = (user) => {
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
   editBtn.innerText = "Edit Profile";
+  profile.innerHTML = `Your Profile`;
   info.innerHTML = `
             <center>
              Name: ${user.name}<br>
@@ -139,8 +140,5 @@ const updateProfile = (e, user) => {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((json) => console.log(json));
-
-  //   resetForm();
-  //   findAppointments(user);
+    .then((json) => renderWaterCups(json));
 };

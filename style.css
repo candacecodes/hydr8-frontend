@@ -1,3 +1,13 @@
+.header {
+	margin-left: 33%;
+	margin-bottom: 70%;
+	margin-top: 20px;
+	width: 35%;
+	padding-top: 30px;
+	padding-bottom: 10pxpx;
+	
+}
+
 .column {
     float: left;
     width: 33%;
@@ -7,6 +17,9 @@
   }
   
   /* Clear floats after the columns */
+
+
+  
   .row:after {
     content: "";
     display: table;
@@ -15,7 +28,7 @@
 
 body{
     height: 100%;
-    background:lightblue;
+    background:white;
 }
 
 body{
@@ -25,14 +38,18 @@ body{
 } 
 
 .box{
-    width: 75px;
-    height: 140px;
+    width: 90px;
+    height: 90px;
     border: 2px solid white;
-    border-radius: 0.3em;
+    border-radius: 10em;
     position: relative;
     overflow: hidden;
     /* box-shadow: 2px 0px 40px black; */
     transform: scale(2);
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .wave{
@@ -49,9 +66,11 @@ body{
 .lightblue{
     background: linear-gradient(to right, lightblue, blue
     );
+    animation-fill-mode: forwards;
 }
 
 @keyframes waves{
+    
     0%{
         transform: rotate(0);
         border-radius: 30%;
@@ -61,10 +80,12 @@ body{
         border-radius: 39%;
     }
     100%{
-        transform: rotate(360deg);
+        transform: rotate(180deg);
         border-radius: 30%;
-        bottom: -80px;
+        bottom: -110px;
     }
 }
 
-  
+#profile {
+    margin-right: 60%;
+}

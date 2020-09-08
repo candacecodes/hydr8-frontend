@@ -1,13 +1,37 @@
 .header {
-	margin-left: 33%;
-	margin-bottom: 70%;
-	margin-top: 20px;
-	width: 35%;
-	padding-top: 30px;
-	padding-bottom: 10px;
-	
+    padding-top: 50px;
+    height: 25%;
+    width: 30%; /** Use 100% to fill the width of the page **/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    
 }
 
+img.banner {
+    display: block;
+    margin: 0 auto;
+} 
+.content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    border: 3px solid blue;
+    border-radius: 3px;
+    padding: 20px;
+    margin-top: 15%;
+}
+
+.profile-container {
+    background-color: lightgrey;
+    border: 2px solid white;
+    border-radius: 2em;
+    float: left;
+    padding: 10px;
+
+}
 /* .column {
     float: left;
     width: 33%;
@@ -37,20 +61,20 @@ body{
     align-items: center;
 } 
 
-.box{
+/* .box{
     width: 90px;
     height: 90px;
     border: 2px solid lightblue;
     border-radius: 10em;
     position: relative;
     overflow: hidden;
-    /* box-shadow: 2px 0px 40px black; */
+
     transform: scale(2);
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .wave{
     width: 150px;

@@ -21,7 +21,7 @@ const login = () => {
 
         json.forEach((user) => {
           if (user.name === e.target[0].value) {
-            let landingDiv = document.getElementById("profile");
+            let landingDiv = document.getElementById("profile-content");
             foundUser = user;
             return_value = true;
             landingDiv.innerText = `Login successful, welcome ${user.name}.`;
@@ -40,53 +40,84 @@ const login = () => {
   });
 };
 
-const renderWaterCups = (e) => {
-  console.log(e);
-  let profile = document.getElementById("profile");
+const renderWaterCups = (user) => {
+  console.log(user);
+  let profile = document.getElementById("profile-content");
   let info = document.createElement("div");
-  let submitBtn = document.createElement("button");
+  let editBtn = document.createElement("button");
+  editBtn.innerText = "Edit Profile";
   info.innerHTML = `
             <center>
-             Name: ${e.name}<br>
-             Age: ${e.age}<br>
-             Gender: ${e.gender}<br>
-             Water Goal: ${e.watergoal}<br>
+             Name: ${user.name}<br>
+             Age: ${user.age}<br>
+             Gender: ${user.gender}<br>
+             Water Goal: ${user.watergoal}<br>
             </center>
          `;
   profile.appendChild(info);
-  info.appendChild(submitBtn);
+  info.appendChild(editBtn);
 
-  info.addEventListener("submit", (e) => editProfile(e));
+  info.addEventListener("click", (e) => editProfile(e, user));
 };
 
-const editProfile = (e) => {
-    console.log(e)
+const editProfile = (e, user) => {
+  console.log(user);
+  let profile = document.getElementById("profile-content");
+  let info = document.createElement("div");
+  let editBtn = document.createElement("button");
+  editBtn.innerText = "Submit Update";
+  profile.innerText = "Update Profile";
+  //   info.innerHTML = ``;
 
-    // <div class="updateprofile" id="updateprofileinfo">
-    // <center>
-    //   <h4 id="name">Update Profile</h4>
-    //     <label for="fdate">Name:</label> 
-    //     <input type="text" id="fdate" name="fdate" value="">
-    //     <br>
-        
-    //     <label for="fage">Age: </label>
-    //     <select id="fage" name="fage" value=""></select>
-    //     <br>
+  info.innerHTML = `
+      <label for="fdate">Name:</label> 
+      <input type="text" id="fdate" name="fdate" value="">
+      <br>
+      
+      <label for="fage">Age: </label>
+      <input type="text" id="fage" name="fage" value=""></select>
+      <br>
 
-    //     <label for="fgender">Gender: </label>
-    //     <select id="fgender" name="fgender" value=""></select>
-    //     <br>
+      <label for="fgender">Gender: </label>
+      <input type="text" id="fgender" name="fgender" value=""></select>
+      <br>
 
-    //     <label for="fwatergoal">Water Goal: </label>
-    //     <select id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
-    //     <br>
+      <label for="fwatergoal">Water Goal: </label>
+      <input type="text" id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
+      <br><br>
 
-        
-    //     <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
-        
-    //   </form> </center><br><br>
-    //     </div>
-    //   </div>
+      <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
+      
+    </form>`;
 
+  //   info.innerHTML = `
+  //     <div id="updateprofile">
+  //     <center>
+  //         <label for="fdate">Name:</label>
+  //         <input type="text" id="fdate" name="fdate" value="">
+  //         <br>
 
-}
+  //         <label for="fage">Age: </label>
+  //         <select id="fage" name="fage" value=""></select>
+  //         <br>
+
+  //         <label for="fgender">Gender: </label>
+  //         <select id="fgender" name="fgender" value=""></select>
+  //         <br>
+
+  //         <label for="fwatergoal">Water Goal: </label>
+  //         <select id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
+  //         <br><br>
+
+  //         <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
+
+  //       </form></center>`;
+
+  profile.appendChild(info);
+  profile.addEventListener("submit", (e) => updateProfile(e, user));
+};
+
+const updateProfile = (e, user) => {
+  e.preventDefault();
+  console.log(hi);
+};

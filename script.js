@@ -147,14 +147,58 @@ const findWaterCups = (user) => {
     });
 };
 
-const renderWaterCups = (watercups) => {
+const renderWaterCups = (watercups, user) => {
+  // for each watercup
   console.log(watercups);
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
   let content = document.querySelector(".content"); // for waterbottle
   let div = document.createElement("div");
   let cup = document.createElement("p");
+  let total = document.createElement("p");
+  //   let addBtn = document.createElement("button");
+  let deleteBtn = document.createElement("button");
+  //   addBtn.innerText = "Drink";
+  deleteBtn.innerText = "Delete Drink";
+  //   total.innerText = "Watercup Total";
+
   cup.innerHTML = `${watercups.amount}`;
+  cup.id = `${watercups.id}`;
+  //   cup.appendChild(addBtn);
+  cup.appendChild(deleteBtn);
   div.appendChild(cup);
+  //   div.appendChild(total);
   content.appendChild(div);
+
+  deleteBtn.addEventListener("click", (e) => deleteDrink(e, watercups, user));
+};
+
+// backend for delete drink
+const deleteDrink = (e, watercups, user) => {
+  fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
+    method: "DELETE",
+  }).then((res) => {
+    let deleteThisWaterCup = document.getElementById(`${watercups.id}`);
+    deleteThisWaterCup.innerText = "deleted watercup";
+  });
+};
+
+//backend for add drink
+const addDrink = (e, user) => {
+  let data = {
+    amount: "1",
+    user_id: user.id,
+  };
+
+  fetch(`http://localhost:3000/water_cups`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((json) => console.log(json));
 };

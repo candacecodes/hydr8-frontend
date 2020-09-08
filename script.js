@@ -46,6 +46,7 @@ const renderWaterCups = (e) => {
     console.log(e)
      let profile = document.getElementById('profile')
      let info = document.createElement('div')
+     let submitBtn = document.createElement('btn')
      info.innerHTML = `
             <center>
              Name: ${e.name}<br>
@@ -55,4 +56,7 @@ const renderWaterCups = (e) => {
             </center>
          `
      profile.appendChild(info)
+     profile.appendChild(submitBtn)
+
+     submitBtn.addEventListener('click', e => editProfile(e))
 } 

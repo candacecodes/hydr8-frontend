@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 let user;
 let waterGoal = document.createElement("h1");
-waterGoal.className = 'remainder-header'
+waterGoal.className = "remainder-header";
 waterGoal.id = "waterRemainder";
 
 // login function
@@ -61,11 +61,11 @@ function toggleContent() {
 const renderProfile = (user) => {
   console.log(user);
   let waterBottleContainer = document.getElementById("water-bottle-container");
-  let profile = document.getElementById("profile-content");
+  let profile = document.getElementById("update-profile");
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
   let addDrinkBtn = document.createElement("button");
-  addDrinkBtn.className = 'btn btn-primary' // can add this somewhere else
+  addDrinkBtn.className = "btn btn-primary"; // can add this somewhere else
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";
@@ -79,7 +79,7 @@ const renderProfile = (user) => {
              Water Goal: ${user.watergoal}<br>
             </center>
          `;
-  profile.appendChild(info);
+  profile.appendChild(info); // append info profile header div
   info.appendChild(editBtn);
   waterBottleContainer.appendChild(addDrinkBtn);
   waterBottleContainer.prepend(waterGoal);
@@ -90,7 +90,7 @@ const renderProfile = (user) => {
 
 const editProfile = (e, user) => {
   //   console.log(user);
-  let profile = document.getElementById("profile-content");
+  let profile = document.getElementById("update-profile");
   let info = document.createElement("form");
   let editBtn = document.createElement("button");
   editBtn.innerText = "Submit Update";

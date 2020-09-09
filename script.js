@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 let user;
 let waterGoal = document.createElement("h1");
+waterGoal.className = 'remainder-header'
 waterGoal.id = "waterRemainder";
 
 // login function
@@ -63,7 +64,8 @@ const renderProfile = (user) => {
   let profile = document.getElementById("profile-content");
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
-  let addDrinkBtn = document.createElement("button"); // can add this somewhere else
+  let addDrinkBtn = document.createElement("button");
+  addDrinkBtn.className = 'btn btn-primary' // can add this somewhere else
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";

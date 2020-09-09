@@ -1,3 +1,12 @@
+h1 {
+color: white;
+text-align: center;
+}
+#login-buttons {
+  margin-left: 90px;
+}
+
+
 .header {
   padding: 50px;
   height: 30%;
@@ -14,27 +23,32 @@ img.banner {
   margin: 0 auto;
 }
 .content {
-  position: relative;
-  width: 90%;
-  height: 90%;
-  border: 3px solid blue;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
   border-radius: 3px;
   padding: 20px;
   margin-top: 15%;
 }
 
 .profile-container {
-  background-color: lightgrey;
-  border: 2px solid white;
+   background: linear-gradient(to bottom, #00709F -2%, #ffffff 90%);;
+ 
   border-radius: 2em;
-  float: left;
+  position: relative;
+  top: 95%;
+  left: 40%;
   padding: 10px;
+  width: 20%;
+   
 }
+
 
 
 .circle {
   position: absolute ;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 150px;
@@ -105,6 +119,7 @@ img.banner {
 body {
   height: 100%;
   background: white;
+  font-style: helvetica;
 }
 
 body {
@@ -149,6 +164,12 @@ body {
 }
 
 /* WATER BOTTLE */
+
+
+.remainder-header{
+color: white;
+font-size: 28px;
+}
 .water-bottle-container {
   background-color:#ddd;
   padding: 20px;
@@ -159,6 +180,7 @@ body {
   top: 45%;
   left: 45%;
   margin-bottom: 50px;
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6) inset;
   
 }
 
@@ -189,8 +211,8 @@ body {
   height: 28px;
   width: 200px;
   border-radius: 46px/10px;
-  box-shadow: 0px 4px 20px -4px rgba(0, 204, 255, 0.3),
-    0px 2px 15px -2px rgba(0, 204, 255, 0.4);
+  box-shadow: 0px 4px 20px -4px rgba(0, 26, 255, 0.3),
+    0px 2px 15px -2px rgba(0, 119, 255, 0.4);
   bottom: -15.2px;
   z-index: 0;
 }
@@ -305,7 +327,7 @@ body {
   border-top: none;
   border-bottom: none;
   background: linear-gradient(
-    left,
+   to left,
     rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0) 5%,
     rgba(255, 255, 255, 0) 95%,
@@ -426,9 +448,9 @@ body {
 .water {
   background: linear-gradient(
     -85deg,
-    rgba(0, 204, 255, 0.35),
-    rgba(0, 173, 216, 0.55) 70%,
-    rgba(0, 173, 216, 0.4)
+    rgba(0, 110, 255, 0.35),
+    rgba(0, 76, 216, 0.767) 70%,
+    rgba(4, 0, 216, 0.4)
   );
   width: 98%;
   height: 298px;
@@ -436,10 +458,10 @@ body {
   left: 1px;
   bottom: 2px;
   border-radius: 50px 50px 20px 20px/8px 8px 10px 10px;
-  box-shadow: 0px 0px 6px rgba(0, 204, 255, 0.5) inset,
+  box-shadow: 0px 0px 6px  rgba(0, 76, 216, 0.767) 70%, inset,
     0px 0.2px 3px -1px rgba(0, 0, 0, 0.3) inset,
     0px 2px 6px -1px rgba(0, 0, 0, 0.1) inset,
-    0px 2px 5px rgba(0, 204, 255, 0.3), 0px 1px 3px rgba(0, 204, 255, 0.2);
+    0px 2px 5px rgba(4, 0, 216, 0.4) , 0px 1px 3px rgba(0, 204, 255, 0.2);
   transition: height 2s ease;
 }
 
@@ -450,10 +472,9 @@ body {
   top: 0px;
   background: linear-gradient(
     left,
-    rgba(255, 255, 255, 0.4),
-    rgba(0, 204, 255, 0.05) 50%,
-    rgba(0, 204, 255, 0.1) 80%,
-    rgba(255, 255, 255, 0.3)
+    rgba(0, 110, 255, 0.35),
+    rgba(0, 76, 216, 0.767) 70%,
+    rgba(4, 0, 216, 0.4)
   );
   border-radius: 50px/8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -477,4 +498,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: none;
   box-shadow: 0px -2px 3px -1px rgba(0, 204, 255, 0.25);
+}
+
+.btn {
+  margin-left: 50px;
+  background: #0066ff
+  border: 1px solid white;
 }

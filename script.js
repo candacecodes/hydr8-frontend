@@ -47,9 +47,9 @@ const login = () => {
       });
   });
 };
-
+// this is to toggle / show waterbottle after user logs in
 function toggleContent() {
-  var x = document.getElementById("water-bottle-container");
+  let x = document.getElementById("water-bottle-container");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -175,29 +175,29 @@ const renderWaterCups = (watercups, user) => {
   //   console.log(watercups);
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
+  let x = document.getElementById("water-bottle-container");
   let content = document.querySelector(".content"); // for waterbottle
   let div = document.createElement("div");
   let cup = document.createElement("p");
   let total = document.createElement("p");
   //   let addBtn = document.createElement("button");
   let deleteBtn = document.createElement("button");
-  //   addBtn.innerText = "Drink";
+
   deleteBtn.innerText = "Delete Drink";
   //   total.innerText = "Watercup Total";
 
-  cup.innerHTML = `${watercups.amount}`;
-  cup.id = `${watercups.id}`;
-  //   cup.appendChild(addBtn);
-  cup.appendChild(deleteBtn);
-  div.appendChild(cup);
+  cup.innerHTML = `${watercups.amount}`; // displays watercup amount
+  cup.id = `${watercups.id}`; // id for watercup
+  cup.appendChild(deleteBtn); // append delete button to specific cup
+  div.appendChild(cup); // append watercup to div
   //   div.appendChild(total);
-  content.appendChild(div);
+  x.appendChild(div); // append div to .content class
 
   deleteBtn.addEventListener("click", (e) => deleteDrink(e, watercups, user));
 };
 
-// backend for delete drink
 const deleteDrink = (e, watercups, user) => {
+  // backend for delete drink
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",
   }).then((res) => {
@@ -209,11 +209,11 @@ const deleteDrink = (e, watercups, user) => {
   deleteDrinkWaterVisual();
 };
 
-//backend for add drink
 const addDrink = (e, user) => {
+  //backend for add drink
   addDrinkWaterVisual();
 
-  waterGoal.innerHTML = `<center>Water Remaining: <br> ${(user.watergoal -= 1)} Cups </br><br></center>`;
+  decreaseWaterGoal(user);
 
   let data = {
     amount: 1,
@@ -231,6 +231,15 @@ const addDrink = (e, user) => {
   })
     .then((res) => res.json())
     .then((json) => renderWaterCups(json));
+};
+
+const decreaseWaterGoal = (user) => {
+  if (waterGoal.innerText === "Water Remaining: 0 Cups") {
+    waterGoal.innerHTML = ``;
+    waterGoal.innerHTML = `Water Goal Reached`;
+  } else {
+    waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal -= 1)} Cups </br><br></center>`;
+  }
 };
 
 const addDrinkWaterVisual = () => {

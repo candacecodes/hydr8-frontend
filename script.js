@@ -211,7 +211,7 @@ const deleteDrink = (e, watercups, user) => {
 const addDrink = (e, user) => {
   addDrinkWaterVisual();
 
-  waterGoal.innerHTML = `<center>Water Remaining: <br> ${(user.watergoal -= 1)} Cups </br><br></center>`;
+  decreaseWaterGoal(user);
 
   let data = {
     amount: 1,
@@ -229,6 +229,17 @@ const addDrink = (e, user) => {
   })
     .then((res) => res.json())
     .then((json) => renderWaterCups(json));
+};
+
+const decreaseWaterGoal = (user) => {
+  if (
+    waterGoal.innerHTML >= `<center>Water Remaining: 0 Cups <br><br></center>`
+  ) {
+    waterGoal.innerHTML = ``;
+    waterGoal.innerHTML = `Water Goal Reached`;
+  } else {
+    waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal -= 1)} Cups </br><br></center>`;
+  }
 };
 
 const addDrinkWaterVisual = () => {

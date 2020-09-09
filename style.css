@@ -1,35 +1,34 @@
 .header {
-    padding: 50px;
-    height: 30%;
-    width: 30%; /** Use 100% to fill the width of the page **/
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    
+  padding: 50px;
+  height: 30%;
+  width: 30%; /** Use 100% to fill the width of the page **/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 img.banner {
-    display: block;
-    margin: 0 auto;
-} 
+  display: block;
+  margin: 0 auto;
+}
 .content {
-    position: relative;
-    width: 90%;
-    height: 90%;
-    border: 3px solid blue;
-    border-radius: 3px;
-    padding: 20px;
-    margin-top: 15%;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  border: 3px solid blue;
+  border-radius: 3px;
+  padding: 20px;
+  margin-top: 15%;
 }
 
 .profile-container {
-    background-color: lightgrey;
-    border: 2px solid white;
-    border-radius: 2em;
-    float: left;
-    padding: 10px;
+  background-color: lightgrey;
+  border: 2px solid white;
+  border-radius: 2em;
+  float: left;
+  padding: 10px;
 }
 
 /* .column {
@@ -39,339 +38,396 @@ img.banner {
     margin: 20px;
     padding: 5px;
   } */
-  
-  /* Clear floats after the columns */
 
+/* Clear floats after the columns */
 
-  
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  height: 100%;
+  background: white;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 90px;
+  height: 90px;
+  border: 2px solid lightblue;
+  border-radius: 10em;
+  position: relative;
+  overflow: hidden;
+
+  transform: scale(2);
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wave {
+  width: 150px;
+  height: 200px; /* where wave height is controlled */
+  position: absolute;
+  left: -50%;
+  bottom: -190%;
+  border-radius: 33%;
+  transition: all 1.4s linear;
+  animation: waves 2.4s linear infinite;
+}
+
+.lightblue {
+  background: lightblue;
+  animation-fill-mode: forwards;
+}
+
+@keyframes waves {
+  0% {
+    transform: rotate(0);
+    border-radius: 30%;
+    bottom: -170px;
   }
-
-body{
-    height: 100%;
-    background:white;
+  50% {
+    bottom: -150px;
+    border-radius: 39%;
+  }
+  100% {
+    transform: rotate(180deg);
+    border-radius: 30%;
+    bottom: -170px;
+  }
 }
-
-body{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-} 
-
-.box{
-    width: 90px;
-    height: 90px;
-    border: 2px solid lightblue;
-    border-radius: 10em;
-    position: relative;
-    overflow: hidden;
-
-    transform: scale(2);
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.wave{
-    width: 150px;
-    height: 200px; /* where wave height is controlled */ 
-    position: absolute;
-    left: -50%;
-    bottom: -190%;
-    border-radius: 33%;
-    transition: all 1.4s linear; 
-    animation: waves 2.4s linear infinite;
-}
-
-.lightblue{
-    background: lightblue;
-    animation-fill-mode: forwards;
-}
-
-@keyframes waves{
-    
-    0%{
-        transform: rotate(0);
-        border-radius: 30%;
-        bottom: -170px;
-    }
-    50%{
-        bottom: -150px;
-        border-radius: 39%;
-    }
-    100%{
-        transform: rotate(180deg);
-        border-radius: 30%;
-        bottom: -170px;
-    }
-    
-}
-
 
 /* WATER BOTTLE */
 .water-bottle-container {
-    background-color: #ddd;
-    padding:20px;
-    border : 1px solid lightgrey;
-    border-radius: 3em;
-    width: 238px;
-   
+  background-color: #ddd;
+  padding: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3em;
+  width: 238px;
 }
 
-:before, :after {
-    content: '';
-    display: block;
-    position: absolute;
-  }
-  .bottle {
-    display: inline-block;
-    position: relative;
-    width: 200px;
-    margin: 0 20px 40px 0;
-  }
-  
-  .bottle:after {
-    height: 28px;
-    width: 200px;
-    border-radius: 46px/10px;
-    box-shadow: 0px 1px 4px -2px rgba(0, 0, 0, 0.2), 0px 2px 10px -3px rgba(0, 0, 0, 0.1);
-    bottom: -15.2px;
-    z-index: 0;
-  }
-  
-  .bottle:before {
-    height: 28px;
-    width: 200px;
-    border-radius: 46px/10px;
-    box-shadow: 0px 4px 20px -4px rgba(0, 204, 255, 0.3), 0px 2px 15px -2px rgba(0, 204, 255, 0.4);
-    bottom: -15.2px;
-    z-index: 0;
-  }
-  
-  .bottle_top {
-    height: 60px;
-    width: 160px;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-top: none;
-    border-bottom: none;
-    margin: 0px auto;
-  }
-  
-  .bottle_top:after, .bottle_top:before {
-    height: 20px;
-    width: 156px;
-    border-radius: 46px/10px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    left: 0.5px;
-    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6) inset;
-  }
-  
-  .bottle_top:after {
-    top: -12px;
-    box-shadow: 0px 0px px rgba(255, 255, 255, 0.6) inset, 0px 3px 3px -1px rgba(255, 255, 255, 0.3);
-  }
-  
-  .bottle_top:before {
-    top: 48px;
-    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.4) inset;
-  }
-  
-  .bottle_neck {
-    height: 40px;
-    width: 124px;
-    position: relative;
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-top: none;
-    border-bottom: none;
-    margin: 0px auto;
-  }
-  
-  .bottle_neck:after, .bottle_neck:before {
-    height: 16px;
-    width: 124px;
-    border-radius: 30px/8px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-top: none;
-    left: -1px;
-  }
-  
-  .bottle_neck:after {
-    top: -8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 5px 3px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .bottle_neck:before {
-    top: 30px;
-  }
-  
-  .bottle_main {
-    height: 300px;
-    position: relative;
-    width: 196px;
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-top: none;
-    border-bottom: none;
-  }
-  
-  .bottle_main:after, .bottle_main:before {
-    height: 24px;
-    width: 196px;
-    border-radius: 46px/10px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    left: -1px;
-  }
-  
-  .bottle_main:after {
-    top: -14px;
-    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6) inset, 0px 3px 3px -1px rgba(255, 255, 255, 0.4), 0px 0px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 6px rgba(255, 255, 255, 0.7) inset, 0px 0px 3px rgba(0, 0, 0, 0.15) inset;
-  }
-  
-  .bottle_main:before {
-    top: 286px;
-    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7) inset, 0px 0px 3px rgba(0, 0, 0, 0.15) inset;
-  }
-  
-  .bottle_mouth {
-    height: 104px;
-    width: 88px;
-    margin: 0px auto;
-    position: relative;
-    background: none;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    border-top: none;
-    border-bottom: none;
-    background: linear-gradient(left, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 0.3));
-    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3);
-  }
-  
-  .bottle_mouth:after {
-    height: 12px;
-    width: 88px;
-    border-radius: 25px/6px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    left: -1px;
-    top: -8px;
-    z-index: 1;
-    box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.3);
-  }
-  
-  .bottle_inner {
-    height: 298px;
-    width: 92%;
-    margin: 0px auto;
-    border-radius: 10px 10px 20px 20px/10px;
-    border: 1px solid rgba(0, 0, 0, 0.01);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom-width: 0.5px;
-    position: relative;
-    box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5) inset, 0px 0px 8px rgba(255, 255, 255, 0.6) inset, 0px 0px 5px rgba(255, 255, 255, 0.5);
-    position: relative;
-    top: 1px;
-  }
-  
-  .bottle_inner:before {
-    border-radius: 40px/4px;
-    top: 280px;
-    width: 90%;
-    left: 3px;
-    height: 18px;
-  }
-  
-  .bottle_top .highlight {
-    display: block;
-    height: 60px;
-    width: 30px;
-    position: absolute;
-    left: 5px;
-    top: 10px;
-    transform: skew(0deg, 0deg);
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6) 4%, rgba(255, 255, 255, 0.2) 98%, rgba(255, 255, 255, 0));
-  }
-  
-  .bottle_top .highlight:after {
-    height: 60px;
-    width: 4px;
-    left: -3px;
-    top: -2px;
-    transform: skew(0deg, 5deg);
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  .bottle_main .highlight {
-    display: block;
-    height: 300px;
-    width: 50px;
-    position: absolute;
-    left: 10px;
-    top: 12px;
-    transform: skew(0deg, 6deg);
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5) 4%, rgba(255, 255, 255, 0.2) 98%, rgba(255, 255, 255, 0));
-    z-index: 2;
-  }
-  
-  .bottle_main .highlight:after {
-    height: 300px;
-    width: 8px;
-    left: -6px;
-    top: 0px;
-    transform: skew(0deg, 3deg);
-    background: linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 80%);
-  }
-  
-  .bottle_neck .highlight {
-    display: block;
-    height: 40px;
-    width: 50px;
-    position: absolute;
-    left: 2px;
-    top: 12px;
-    transform: skew(0deg, 6deg);
-    background: linear-gradient(left, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3) 4%, rgba(255, 255, 255, 0.1) 98%, rgba(255, 255, 255, 0));
-  }
-  
-  .water {
-    background: linear-gradient(-85deg, rgba(0, 204, 255, 0.35), rgba(0, 173, 216, 0.55) 70%, rgba(0, 173, 216, 0.4));
-    width: 98%;
-    height: 160px;
-    position: absolute;
-    left: 1px;
-    bottom: 2px;
-    border-radius: 50px 50px 20px 20px/8px 8px 10px 10px;
-    box-shadow: 0px 0px 6px rgba(0, 204, 255, 0.5) inset, 0px 0.2px 3px -1px rgba(0, 0, 0, 0.3) inset, 0px 2px 6px -1px rgba(0, 0, 0, 0.1) inset, 0px 2px 5px rgba(0, 204, 255, 0.3), 0px 1px 3px rgba(0, 204, 255, 0.2);
-  }
-  
-  .water:after {
-    height: 20px;
-    width: 176px;
-    left: -1px;
-    top: 0px;
-    background: linear-gradient(left, rgba(255, 255, 255, 0.4), rgba(0, 204, 255, 0.05) 50%, rgba(0, 204, 255, 0.1) 80%, rgba(255, 255, 255, 0.3));
-    border-radius: 50px/8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0px 1px 2px -1px rgba(0, 204, 255, 0.35);
-  }
-  
-  .water:before {
-    height: 20px;
-    width: 164px;
-    left: 4px;
-    bottom: -4px;
-    background: linear-gradient(left, rgba(0, 173, 216, 0.2), rgba(0, 204, 255, 0.1) 50%, rgba(0, 204, 255, 0.2) 80%, rgba(0, 173, 216, 0.3));
-    border-radius: 50px/10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: none;
-    box-shadow: 0px -2px 3px -1px rgba(0, 204, 255, 0.25);
-  }
+:before,
+:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+.bottle {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  margin: 0 20px 40px 0;
+}
+
+.bottle:after {
+  height: 28px;
+  width: 200px;
+  border-radius: 46px/10px;
+  box-shadow: 0px 1px 4px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 10px -3px rgba(0, 0, 0, 0.1);
+  bottom: -15.2px;
+  z-index: 0;
+}
+
+.bottle:before {
+  height: 28px;
+  width: 200px;
+  border-radius: 46px/10px;
+  box-shadow: 0px 4px 20px -4px rgba(0, 204, 255, 0.3),
+    0px 2px 15px -2px rgba(0, 204, 255, 0.4);
+  bottom: -15.2px;
+  z-index: 0;
+}
+
+.bottle_top {
+  height: 60px;
+  width: 160px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: none;
+  border-bottom: none;
+  margin: 0px auto;
+}
+
+.bottle_top:after,
+.bottle_top:before {
+  height: 20px;
+  width: 156px;
+  border-radius: 46px/10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  left: 0.5px;
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6) inset;
+}
+
+.bottle_top:after {
+  top: -12px;
+  box-shadow: 0px 0px px rgba(255, 255, 255, 0.6) inset,
+    0px 3px 3px -1px rgba(255, 255, 255, 0.3);
+}
+
+.bottle_top:before {
+  top: 48px;
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.4) inset;
+}
+
+.bottle_neck {
+  height: 40px;
+  width: 124px;
+  position: relative;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: none;
+  border-bottom: none;
+  margin: 0px auto;
+}
+
+.bottle_neck:after,
+.bottle_neck:before {
+  height: 16px;
+  width: 124px;
+  border-radius: 30px/8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: none;
+  left: -1px;
+}
+
+.bottle_neck:after {
+  top: -8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 5px 3px -2px rgba(0, 0, 0, 0.05);
+}
+
+.bottle_neck:before {
+  top: 30px;
+}
+
+.bottle_main {
+  height: 300px;
+  position: relative;
+  width: 196px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: none;
+  border-bottom: none;
+}
+
+.bottle_main:after,
+.bottle_main:before {
+  height: 24px;
+  width: 196px;
+  border-radius: 46px/10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  left: -1px;
+}
+
+.bottle_main:after {
+  top: -14px;
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6) inset,
+    0px 3px 3px -1px rgba(255, 255, 255, 0.4),
+    0px 0px 3px rgba(0, 0, 0, 0.05) inset,
+    0px 0px 6px rgba(255, 255, 255, 0.7) inset,
+    0px 0px 3px rgba(0, 0, 0, 0.15) inset;
+}
+
+.bottle_main:before {
+  top: 286px;
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7) inset,
+    0px 0px 3px rgba(0, 0, 0, 0.15) inset;
+}
+
+.bottle_mouth {
+  height: 104px;
+  width: 88px;
+  margin: 0px auto;
+  position: relative;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: none;
+  border-bottom: none;
+  background: linear-gradient(
+    left,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0) 5%,
+    rgba(255, 255, 255, 0) 95%,
+    rgba(255, 255, 255, 0.3)
+  );
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3);
+}
+
+.bottle_mouth:after {
+  height: 12px;
+  width: 88px;
+  border-radius: 25px/6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  left: -1px;
+  top: -8px;
+  z-index: 1;
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.3);
+}
+
+.bottle_inner {
+  height: 298px;
+  width: 92%;
+  margin: 0px auto;
+  border-radius: 10px 10px 20px 20px/10px;
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom-width: 0.5px;
+  position: relative;
+  box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5) inset,
+    0px 0px 8px rgba(255, 255, 255, 0.6) inset,
+    0px 0px 5px rgba(255, 255, 255, 0.5);
+  position: relative;
+  top: 1px;
+}
+
+.bottle_inner:before {
+  border-radius: 40px/4px;
+  top: 280px;
+  width: 90%;
+  left: 3px;
+  height: 18px;
+}
+
+.bottle_top .highlight {
+  display: block;
+  height: 60px;
+  width: 30px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transform: skew(0deg, 0deg);
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.6) 4%,
+    rgba(255, 255, 255, 0.2) 98%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.bottle_top .highlight:after {
+  height: 60px;
+  width: 4px;
+  left: -3px;
+  top: -2px;
+  transform: skew(0deg, 5deg);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.bottle_main .highlight {
+  display: block;
+  height: 300px;
+  width: 50px;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  transform: skew(0deg, 6deg);
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.5) 4%,
+    rgba(255, 255, 255, 0.2) 98%,
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 2;
+}
+
+.bottle_main .highlight:after {
+  height: 300px;
+  width: 8px;
+  left: -6px;
+  top: 0px;
+  transform: skew(0deg, 3deg);
+  background: linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0) 80%
+  );
+}
+
+.bottle_neck .highlight {
+  display: block;
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  transform: skew(0deg, 6deg);
+  background: linear-gradient(
+    left,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3) 4%,
+    rgba(255, 255, 255, 0.1) 98%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.water {
+  background: linear-gradient(
+    -85deg,
+    rgba(0, 204, 255, 0.35),
+    rgba(0, 173, 216, 0.55) 70%,
+    rgba(0, 173, 216, 0.4)
+  );
+  width: 98%;
+  height: 160px;
+  position: absolute;
+  left: 1px;
+  bottom: 2px;
+  border-radius: 50px 50px 20px 20px/8px 8px 10px 10px;
+  box-shadow: 0px 0px 6px rgba(0, 204, 255, 0.5) inset,
+    0px 0.2px 3px -1px rgba(0, 0, 0, 0.3) inset,
+    0px 2px 6px -1px rgba(0, 0, 0, 0.1) inset,
+    0px 2px 5px rgba(0, 204, 255, 0.3), 0px 1px 3px rgba(0, 204, 255, 0.2);
+  transition: height 2s ease;
+}
+
+.water:after {
+  height: 20px;
+  width: 176px;
+  left: -1px;
+  top: 0px;
+  background: linear-gradient(
+    left,
+    rgba(255, 255, 255, 0.4),
+    rgba(0, 204, 255, 0.05) 50%,
+    rgba(0, 204, 255, 0.1) 80%,
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 50px/8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 1px 2px -1px rgba(0, 204, 255, 0.35);
+}
+
+.water:before {
+  height: 20px;
+  width: 164px;
+  left: 4px;
+  bottom: -4px;
+  background: linear-gradient(
+    left,
+    rgba(0, 173, 216, 0.2),
+    rgba(0, 204, 255, 0.1) 50%,
+    rgba(0, 204, 255, 0.2) 80%,
+    rgba(0, 173, 216, 0.3)
+  );
+  border-radius: 50px/10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  box-shadow: 0px -2px 3px -1px rgba(0, 204, 255, 0.25);
+}

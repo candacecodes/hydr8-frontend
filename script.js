@@ -159,7 +159,7 @@ const findWaterCups = (user) => {
 
 const renderWaterCups = (watercups, user) => {
   // for each watercup
-  console.log(watercups);
+  //   console.log(watercups);
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
   let content = document.querySelector(".content"); // for waterbottle
@@ -196,6 +196,8 @@ const deleteDrink = (e, watercups, user) => {
 
 //backend for add drink
 const addDrink = (e, user) => {
+  increaseWaterVisual();
+
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${(user.watergoal -= 1)} Cups </br><br></center>`;
 
   let data = {
@@ -214,16 +216,15 @@ const addDrink = (e, user) => {
   })
     .then((res) => res.json())
     .then((json) => renderWaterCups(json));
-
-  increaseWaterVisual();
 };
 
 const increaseWaterVisual = () => {
   // grab CSS property and increment .water[height] by ~10px each time
   let water = document.querySelector(".water");
-  let height = parseInt(water.style.height);
-  console.log(water);
-  console.log(height);
-  height += 10;
-  water.style.height = `${height}px;`;
+  //   let style = getComputedStyle(water);
+  //   let height = style.height;
+  //   let drink = parseInt(height) + 10;
+  let height = water.offsetHeight;
+  water.style.height = `${height + 25}px`;
+  // add transition onto height div
 };

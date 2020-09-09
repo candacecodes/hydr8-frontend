@@ -10,7 +10,11 @@ text-align: center;
   float: left;
   background: black;
 }
-
+.alert {
+  position: fixed;
+  top: 30%;
+  left: 5%;
+}
 .facts-card {
   background: grey ;
   width: 200px;

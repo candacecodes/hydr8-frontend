@@ -27,10 +27,19 @@ const login = () => {
 
         json.forEach((user) => {
           if (user.name === e.target[0].value) {
-            let landingDiv = document.getElementById("profile-content");
+            let page = document.querySelector(".content")
+            let landingDiv = document.createElement("div");
+            landingDiv.className = "alert alert-success alert-dismissible fade show"
+            page.appendChild(landingDiv)
             foundUser = user;
             return_value = true;
-            landingDiv.innerText = `Login successful, welcome ${user.name}.`;
+            landingDiv.innerHTML = '';
+            landingDiv.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Login Successful, Welcome, ${user.name}!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>`;
 
             renderProfile(foundUser); // loads user profile information
             findWaterCups(foundUser); // finds matching waterCups with userID

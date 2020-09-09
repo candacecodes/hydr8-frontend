@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", (e) => {
+  document.getElementById("water-bottle-container").style.display = "none";
+
   let success = false;
   while (!success) {
     success = login();
@@ -31,6 +33,7 @@ const login = () => {
 
             renderProfile(foundUser); // loads user profile information
             findWaterCups(foundUser); // finds matching waterCups with userID
+            toggleContent();
           }
         });
         if (!foundUser) {
@@ -44,6 +47,14 @@ const login = () => {
   });
 };
 
+function toggleContent() {
+  var x = document.getElementById("water-bottle-container");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 //signup function
 
 const renderProfile = (user) => {

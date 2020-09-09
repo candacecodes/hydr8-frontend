@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("water-bottle-container").style.display = "none";
-
+  // waterFacts();
   let success = false;
   while (!success) {
     success = login();
@@ -254,3 +254,6 @@ const deleteDrinkWaterVisual = () => {
   let height = water.offsetHeight;
   water.style.height = `${height + 19}px`;
 };
+
+// const waterFacts = () => {
+// };

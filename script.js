@@ -71,7 +71,7 @@ function toggleContent() {
 
 // after sign in hide profile login
 function hideProfileContent() {
-  let x = document.getElementById("profile-content");
+  let x = document.getElementById("profile-container");
   x.style.display = "none";
 }
 
@@ -83,7 +83,7 @@ const renderProfile = (user) => {
   let profile = document.getElementById("update-profile");
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
-  editBtn.className = 'edit-button'
+  editBtn.className = "edit-button";
   let addDrinkBtn = document.createElement("button");
   addDrinkBtn.className = "btn btn-primary"; // can add this somewhere else
 

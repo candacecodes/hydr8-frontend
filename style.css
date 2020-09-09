@@ -25,6 +25,7 @@ text-align: center;
   top: 30%;
   left: 5%;
   box-shadow:3px 3px 3px #888;
+  padding-right: 85px;
 }
 .facts-card {
   background: grey ;
@@ -558,5 +559,8 @@ font-size: 28px;
   color:white;
   border-radius: 6px;
   padding:8px;
+}
+.login-buttons {
+
 }
 

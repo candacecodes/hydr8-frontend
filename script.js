@@ -185,17 +185,17 @@ const renderWaterCups = (watercups, user) => {
   //   total.innerText = "Watercup Total";
 
   cup.innerHTML = `${watercups.amount}`; // displays watercup amount
-  cup.id = `${watercups.id}`; // id for watercup 
-  cup.appendChild(deleteBtn); // append delete button to specific cup 
-  div.appendChild(cup); // append watercup to div 
+  cup.id = `${watercups.id}`; // id for watercup
+  cup.appendChild(deleteBtn); // append delete button to specific cup
+  div.appendChild(cup); // append watercup to div
   //   div.appendChild(total);
-  x.appendChild(div); // append div to .content class 
+  x.appendChild(div); // append div to .content class
 
   deleteBtn.addEventListener("click", (e) => deleteDrink(e, watercups, user));
 };
 
-// backend for delete drink
 const deleteDrink = (e, watercups, user) => {
+  // backend for delete drink
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",
   }).then((res) => {
@@ -207,8 +207,8 @@ const deleteDrink = (e, watercups, user) => {
   deleteDrinkWaterVisual();
 };
 
-//backend for add drink
 const addDrink = (e, user) => {
+  //backend for add drink
   addDrinkWaterVisual();
 
   decreaseWaterGoal(user);
@@ -232,9 +232,7 @@ const addDrink = (e, user) => {
 };
 
 const decreaseWaterGoal = (user) => {
-  if (
-    waterGoal.innerHTML >= `<center>Water Remaining: 0 Cups <br><br></center>`
-  ) {
+  if (waterGoal.innerText === "Water Remaining: 0 Cups") {
     waterGoal.innerHTML = ``;
     waterGoal.innerHTML = `Water Goal Reached`;
   } else {

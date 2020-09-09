@@ -1,19 +1,29 @@
 h1 {
-color: white;
+color:black;
 text-align: center;
+
 }
 #login-buttons {
   margin-left: 90px;
+ 
 }
 
 .update-profile{
-  float: left;
-  background: black;
+  background: #f2f2f2;
+  box-shadow:3px 3px 3px #888;
+  border-radius: 8px;
+  border: 3px solid#f2f2f2;
+  position: fixed;
+  top: 40%;
+  left: 5%;
+  padding: 10px;
+  width: 20%;
 }
 .alert {
   position: fixed;
   top: 30%;
   left: 5%;
+  box-shadow:3px 3px 3px #888;
 }
 .facts-card {
   background: grey ;
@@ -40,6 +50,7 @@ text-align: center;
 img.banner {
   display: block;
   margin: 0 auto;
+
 }
 .content {
   position: absolute;
@@ -49,10 +60,15 @@ img.banner {
   border-radius: 3px;
   padding: 20px;
   margin-top: 15%;
+
+  font-family: "Helvetica Neue";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .profile-container {
-   background: linear-gradient(to bottom, #00709F -2%, #ffffff 90%);;
+   background:#f2f2f2; ;
  
   border-radius: 2em;
   position: relative;
@@ -60,7 +76,7 @@ img.banner {
   left: 40%;
   padding: 10px;
   width: 20%;
-   
+  box-shadow:3px 3px 3px #888;
 }
 
 
@@ -138,13 +154,20 @@ img.banner {
 body {
   height: 100%;
   background: white;
-  font-style: helvetica;
+  font-family: "Helvetica Neue";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Helvetica Neue";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .box {

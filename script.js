@@ -27,13 +27,14 @@ const login = () => {
 
         json.forEach((user) => {
           if (user.name === e.target[0].value) {
-            let page = document.querySelector(".content")
+            let page = document.querySelector(".content");
             let landingDiv = document.createElement("div");
-            landingDiv.className = "alert alert-success alert-dismissible fade show"
-            page.appendChild(landingDiv)
+            landingDiv.className =
+              "alert alert-success alert-dismissible fade show";
+            page.appendChild(landingDiv);
             foundUser = user;
             return_value = true;
-            landingDiv.innerHTML = '';
+            landingDiv.innerHTML = "";
             landingDiv.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Login Successful, Welcome, ${user.name}!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -44,6 +45,8 @@ const login = () => {
             renderProfile(foundUser); // loads user profile information
             findWaterCups(foundUser); // finds matching waterCups with userID
             toggleContent();
+
+            hideProfileContent();
           }
         });
         if (!foundUser) {
@@ -65,6 +68,13 @@ function toggleContent() {
     x.style.display = "none";
   }
 }
+
+// after sign in hide profile login
+function hideProfileContent() {
+  let x = document.getElementById("profile-content");
+  x.style.display = "none";
+}
+
 //signup function
 
 const renderProfile = (user) => {
@@ -219,6 +229,19 @@ const deleteDrink = (e, watercups, user) => {
   deleteDrinkWaterVisual();
 };
 
+// add event listener to delete button
+
+// const findWaterCups = (user) => {
+//   // fetch to find watercups
+//   fetch(`http://localhost:3000/water_cups`)
+//     .then((res) => res.json())
+//     .then((json) => {
+//       json.forEach((watercup) => {
+//         find(watercup.user_id == user.id) { // find the first matching watercup
+//           fetch(`http://localhost:3000/water_cups/${watercup.id}`, {
+//   method: "DELETE",
+//     });
+
 const addDrink = (e, user) => {
   //backend for add drink
   addDrinkWaterVisual();
@@ -264,6 +287,3 @@ const deleteDrinkWaterVisual = () => {
   let height = water.offsetHeight;
   water.style.height = `${height + 19}px`;
 };
-
-// const waterFacts = () => {
-// };

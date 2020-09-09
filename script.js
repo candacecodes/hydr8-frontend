@@ -203,11 +203,13 @@ const deleteDrink = (e, watercups, user) => {
     deleteThisWaterCup.innerText = "";
     // deleteThisWaterCup.innerText = "deleted watercup";
   });
+
+  deleteDrinkWaterVisual();
 };
 
 //backend for add drink
 const addDrink = (e, user) => {
-  increaseWaterVisual();
+  addDrinkWaterVisual();
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${(user.watergoal -= 1)} Cups </br><br></center>`;
 
@@ -229,13 +231,16 @@ const addDrink = (e, user) => {
     .then((json) => renderWaterCups(json));
 };
 
-const increaseWaterVisual = () => {
+const addDrinkWaterVisual = () => {
   // grab CSS property and increment .water[height] by ~10px each time
   let water = document.querySelector(".water");
-  //   let style = getComputedStyle(water);
-  //   let height = style.height;
-  //   let drink = parseInt(height) + 10;
   let height = water.offsetHeight;
   water.style.height = `${height - 19}px`;
-  // add transition onto height div
+};
+
+const deleteDrinkWaterVisual = () => {
+  // grab CSS property and increment .water[height] by ~10px each time
+  let water = document.querySelector(".water");
+  let height = water.offsetHeight;
+  water.style.height = `${height + 19}px`;
 };

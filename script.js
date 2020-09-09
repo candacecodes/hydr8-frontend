@@ -225,6 +225,6 @@ const increaseWaterVisual = () => {
   //   let height = style.height;
   //   let drink = parseInt(height) + 10;
   let height = water.offsetHeight;
-  water.style.height = `${height + 25}px`;
+  water.style.height = `${height - 19}px`;
   // add transition onto height div
 };

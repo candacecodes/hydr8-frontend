@@ -31,6 +31,61 @@ img.banner {
   padding: 10px;
 }
 
+
+.circle {
+  position: absolute ;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border: 5px solid #fff;
+  box-shadow : 0 0 0 5px #4973ff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wave {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #4973ff;
+  border-radius: 50%;
+  box-shadow: inset 0 0 50px rgba(0,0,0,.5);
+}
+.wave:before,
+.wave:after
+{
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-75%);
+  background: #000;
+}
+.wave:before {
+  border-radius: 45%;
+  background: rgba(255,255,255,1);
+  animation: animate 5s linear infinite;
+}
+
+.wave:after {
+  border-radius: 40%;
+  background: rgba(255,255,255,.5);
+  animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+  }
+
 /* .column {
     float: left;
     width: 33%;
@@ -59,10 +114,10 @@ body {
 }
 
 .box {
-  width: 90px;
+  width: 120px;
   height: 90px;
   border: 2px solid lightblue;
-  border-radius: 10em;
+  border-radius: 5em;
   position: relative;
   overflow: hidden;
 
@@ -73,21 +128,8 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.wave {
-  width: 150px;
-  height: 200px; /* where wave height is controlled */
-  position: absolute;
-  left: -50%;
-  bottom: -190%;
-  border-radius: 33%;
-  transition: all 1.4s linear;
-  animation: waves 2.4s linear infinite;
-}
 
-.lightblue {
-  background: lightblue;
-  animation-fill-mode: forwards;
-}
+
 
 @keyframes waves {
   0% {
@@ -108,11 +150,16 @@ body {
 
 /* WATER BOTTLE */
 .water-bottle-container {
-  background-color: #ddd;
+  background-color:#ddd;
   padding: 20px;
   border: 1px solid lightgrey;
   border-radius: 3em;
   width: 238px;
+  position: absolute; /* or absolute */
+  top: 45%;
+  left: 45%;
+  margin-bottom: 50px;
+  
 }
 
 :before,

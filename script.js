@@ -234,9 +234,8 @@ const addDrink = (e, user) => {
 };
 
 const decreaseWaterGoal = (user) => {
-  if (waterGoal.innerText === "Water Remaining: 0 Cups") {
-    waterGoal.innerHTML = ``;
-    waterGoal.innerHTML = `Water Goal Reached`;
+  if (waterGoal.innerText.includes(" 0")) {
+    waterGoal.innerText = "Water Goal Met";
   } else {
     waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal -= 1)} Cups </br><br></center>`;
   }

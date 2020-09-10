@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("water-bottle-container").style.display = "none";
   document.getElementById("update-profile").style.display = "none";
   document.getElementById("d-drink-container").style.display = "none";
+
+  
   // waterFacts();
  
   let success = false;
@@ -10,6 +12,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
     return success;
   }
 });
+const addDrinkButton = (user) => {
+  let waterBottleContainer = document.getElementById("water-bottle-container");
+  let addDrinkBtn = document.createElement("button");
+  addDrinkBtn.innerText = "Add Cup";
+  addDrinkBtn.className = "btn btn-primary"; // can add this somewhere else
+  waterBottleContainer.appendChild(addDrinkBtn);
+  addDrinkBtn.addEventListener("click", (e) => addDrink(e, user));
+}
+
 
 let user;
 let waterGoal = document.createElement("h1");
@@ -44,6 +55,7 @@ const login = () => {
 
             renderProfile(foundUser); // loads user profile information
             findWaterCups(foundUser); // finds matching waterCups with userID
+            addDrinkButton(foundUser);
             toggleContent();
 
             hideProfileContent();
@@ -102,8 +114,7 @@ const renderProfile = (user) => {
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
   editBtn.className = "edit-button";
-  let addDrinkBtn = document.createElement("button");
-  addDrinkBtn.className = "btn btn-primary"; // can add this somewhere else
+  
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";
@@ -112,7 +123,7 @@ const renderProfile = (user) => {
   <br>
 </svg>
  `;
-  addDrinkBtn.innerText = "Add Cup";
+  
   info.innerHTML = `
             <center>
              Name: ${user.name}<br>
@@ -123,11 +134,11 @@ const renderProfile = (user) => {
          `;
   profile.appendChild(info); // append info profile header div
   info.appendChild(editBtn);
-  waterBottleContainer.appendChild(addDrinkBtn);
+  // waterBottleContainer.appendChild(addDrinkBtn);
   waterBottleContainer.prepend(waterGoal);
 
   info.addEventListener("click", (e) => editProfile(e, user));
-  addDrinkBtn.addEventListener("click", (e) => addDrink(e, user)); // can move this elsewhere with btn
+   
 };
 
 const editProfile = (e, user) => {
@@ -308,9 +319,10 @@ const addDrinkWaterVisual = () => {
   water.style.height = `${height - 19}px`;
 };
 
-const deleteDrinkWaterVisual = () => {
+const deleteDrinkWaterVisual = (user) => {
   // grab CSS property and increment .water[height] by ~10px each time
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
   water.style.height = `${height + 19}px`;
+  waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
 };

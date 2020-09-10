@@ -68,9 +68,6 @@ const login = () => {
             "Sorry, name is not found. Please try again or sign up.";
           loginForm.reset();
         }
-        else {
-          user = foundUser
-        }
       });
   });
 };
@@ -217,7 +214,7 @@ const findWaterCups = (user) => {
         if (watercup.user_id == user.id) {
           fetch(`http://localhost:3000/water_cups/${watercup.id}`)
             .then((res) => res.json())
-            .then((json) => {console.log("this one", json)
+            .then((json) => {
               renderWaterCups(json);
               //   renderAppointments(json, user); // puts appts onto appointment list
             });
@@ -227,7 +224,7 @@ const findWaterCups = (user) => {
 };
 
 const renderWaterCups = (watercups, user) => {
-  console.log(user)
+  
   // for each watercup
   //   console.log(watercups);
   // render watercups onto DOM
@@ -257,7 +254,7 @@ deleteBtn.className = "delete-button"
 };
 
 const deleteDrink = (e, watercups, user) => {
-  console.log(user)
+  
   // backend for delete drink
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",
@@ -267,7 +264,7 @@ const deleteDrink = (e, watercups, user) => {
     // deleteThisWaterCup.innerText = "deleted watercup";
   });
 
-  deleteDrinkWaterVisual(user);
+  deleteDrinkWaterVisual();
 };
 
 // add event listener to delete button
@@ -285,7 +282,7 @@ const deleteDrink = (e, watercups, user) => {
 
 const addDrink = (e, user) => {
   //backend for add drink
-  addDrinkWaterVisual(user);
+  addDrinkWaterVisual();
 
   decreaseWaterGoal(user);
 
@@ -304,8 +301,7 @@ const addDrink = (e, user) => {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((json) => {console.log("hey",json)
-      renderWaterCups(json)});
+    .then((json) => renderWaterCups(json));
 };
 
 const decreaseWaterGoal = (user) => {
@@ -323,10 +319,7 @@ const addDrinkWaterVisual = () => {
   water.style.height = `${height - 19}px`;
 };
 
-const deleteDrinkWaterVisual = () => {
-  console.log(user)
-  
-  console.log(waterGoal)
+const deleteDrinkWaterVisual = (user) => {
   // grab CSS property and increment .water[height] by ~10px each time
   let water = document.querySelector(".water");
   let height = water.offsetHeight;

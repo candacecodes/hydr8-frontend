@@ -79,8 +79,8 @@ signupForm.addEventListener("submit", (e) => {
   if (e.target.name.value === e.target.confirmname.value) {
     let data = {
       name: e.target.name.value,
-      age: 10,
-      gender: "Test",
+      age: e.target.age.value,
+      gender: e.target.gender.value,
       watergoal: 10,
     };
     fetch("http://localhost:3000/users", {

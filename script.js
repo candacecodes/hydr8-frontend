@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("water-bottle-container").style.display = "none";
+  document.getElementById("update-profile").style.display = "none";
   // waterFacts();
   let success = false;
   while (!success) {
@@ -67,6 +68,16 @@ function toggleContent() {
   } else {
     x.style.display = "none";
   }
+
+  let updateprofile = document.getElementById("update-profile");
+  if (updateprofile.style.display === "none") {
+    updateprofile.style.display = "block";
+  } else {
+    updateprofile.style.display = "none";
+  }
+
+  let circle = document.getElementById("circle");
+  circle.style.display = "none";
 }
 
 // after sign in hide profile login

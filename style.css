@@ -1,16 +1,14 @@
 h1 {
-color:black;
-text-align: center;
-
+  color: black;
+  text-align: center;
 }
 #login-buttons {
   margin-left: 90px;
- 
 }
 
-.update-profile{
+.update-profile {
   background: #f2f2f2;
-  box-shadow:3px 3px 3px #888;
+  box-shadow: 3px 3px 3px #888;
   border-radius: 8px;
   border: 3px solid#f2f2f2;
   position: fixed;
@@ -24,18 +22,18 @@ text-align: center;
   position: fixed;
   top: 30%;
   left: 5%;
-  box-shadow:3px 3px 3px #888;
+  box-shadow: 3px 3px 3px #888;
   padding-right: 85px;
 }
 .facts-card {
-  background: grey ;
+  background: grey;
   width: 200px;
   height: 200px;
   position: relative;
   left: 90%;
   top: 50%;
   border-radius: 3px;
-  border: 1px solid grey ;
+  border: 1px solid grey;
 }
 
 .header {
@@ -52,46 +50,43 @@ text-align: center;
 img.banner {
   display: block;
   margin: 0 auto;
-
 }
 .content {
   position: absolute;
   width: 100%;
   height: 100%;
-  
+
   border-radius: 3px;
   padding: 20px;
   margin-top: 15%;
 
   font-family: "Helvetica Neue";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .profile-container {
-   background:#f2f2f2; ;
- 
+  background: #f2f2f2;
+
   border-radius: 2em;
   position: relative;
   top: 95%;
   left: 40%;
   padding: 10px;
   width: 20%;
-  box-shadow:3px 3px 3px #888;
+  box-shadow: 3px 3px 3px #888;
 }
 
-
-
 .circle {
-  position: absolute ;
+  position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
   border: 5px solid #fff;
-  box-shadow : 0 0 0 5px #4973ff;
+  box-shadow: 0 0 0 5px #4973ff;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -102,29 +97,28 @@ img.banner {
   height: 100%;
   background: #4973ff;
   border-radius: 50%;
-  box-shadow: inset 0 0 50px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 .wave:before,
-.wave:after
-{
-  content: '';
+.wave:after {
+  content: "";
   position: absolute;
   width: 200%;
   height: 200%;
   top: 0;
   left: 50%;
-  transform: translate(-50%,-75%);
+  transform: translate(-50%, -75%);
   background: #000;
 }
 .wave:before {
   border-radius: 45%;
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
   animation: animate 5s linear infinite;
 }
 
 .wave:after {
   border-radius: 40%;
-  background: rgba(255,255,255,.5);
+  background: rgba(255, 255, 255, 0.5);
   animation: animate 10s linear infinite;
 }
 
@@ -135,7 +129,7 @@ img.banner {
   100% {
     transform: translate(-50%, -75%) rotate(360deg);
   }
-  }
+}
 
 /* .column {
     float: left;
@@ -157,9 +151,9 @@ body {
   height: 100%;
   background: white;
   font-family: "Helvetica Neue";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 body {
@@ -167,9 +161,9 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Helvetica Neue";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .box {
@@ -186,9 +180,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-
-
 
 @keyframes waves {
   0% {
@@ -209,13 +200,12 @@ body {
 
 /* WATER BOTTLE */
 
-
-.remainder-header{
-color: white;
-font-size: 28px;
+.remainder-header {
+  color: white;
+  font-size: 28px;
 }
 .water-bottle-container {
-  background-color:#ddd;
+  background-color: #ddd;
   padding: 20px;
   border: 1px solid lightgrey;
   border-radius: 3em;
@@ -225,7 +215,6 @@ font-size: 28px;
   left: 45%;
   margin-bottom: 50px;
   box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6) inset;
-  
 }
 
 :before,
@@ -371,7 +360,7 @@ font-size: 28px;
   border-top: none;
   border-bottom: none;
   background: linear-gradient(
-   to left,
+    to left,
     rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0) 5%,
     rgba(255, 255, 255, 0) 95%,
@@ -502,10 +491,10 @@ font-size: 28px;
   left: 1px;
   bottom: 2px;
   border-radius: 50px 50px 20px 20px/8px 8px 10px 10px;
-  box-shadow: 0px 0px 6px  rgba(0, 76, 216, 0.767) 70%, inset,
+  box-shadow: 0px 0px 6px rgba(0, 76, 216, 0.767) 70%, inset,
     0px 0.2px 3px -1px rgba(0, 0, 0, 0.3) inset,
-    0px 2px 6px -1px rgba(0, 0, 0, 0.1) inset,
-    0px 2px 5px rgba(4, 0, 216, 0.4) , 0px 1px 3px rgba(0, 204, 255, 0.2);
+    0px 2px 6px -1px rgba(0, 0, 0, 0.1) inset, 0px 2px 5px rgba(4, 0, 216, 0.4),
+    0px 1px 3px rgba(0, 204, 255, 0.2);
   transition: height 1s ease;
 }
 
@@ -548,15 +537,15 @@ font-size: 28px;
   margin-left: 50px;
   background: #0066ff;
   border: 1px solid white;
-  color:white
+  color: white;
 }
 
 .edit-button {
-  margin-top:20px;
+  margin-top: 20px;
   margin-left: 120px;
   background: #0066ff;
   border: 1px solid white;
-  color:white;
+  color: white;
   border-radius: 6px;
-  padding:8px;
+  padding: 8px;
 }

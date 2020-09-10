@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("update-profile").style.display = "none";
   document.getElementById("d-drink-container").style.display = "none";
   document.getElementById("accordion").style.display = "none";
+  document.getElementById('signup-content').style.display = 'none;'
 
   // waterFacts();
 
@@ -88,7 +89,7 @@ signupForm.addEventListener("submit", (e) => {
       name: e.target.name.value,
       age: e.target.age.value,
       gender: e.target.gender.value,
-      watergoal: 10,
+      watergoal: 13,
     };
     fetch("http://localhost:3000/users", {
       method: "POST",
@@ -154,6 +155,12 @@ function toggleContent() {
     facts.style.display = "none";
   }
 
+  let signup = document.getElementById('signup-content')
+  if (signup.style.display === "none") {
+    signup.style.display = "block";
+  } else {
+    signup.style.display = "none";
+  }
 }
 
 // after sign in hide profile login
@@ -206,23 +213,21 @@ const editProfile = (e, user) => {
   //   info.innerHTML = ``;
 
   info.innerHTML = `
-      <label for="fname">Name:</label> 
+      <label for="fname">Name:</label><br> 
       <input type="text" id="fname" name="fname" value="">
       <br>
       
-      <label for="fage">Age (Int): </label>
+      <label for="fage">Age (Int): </label><br>
       <input type="text" id="fage" name="fage" value=""></select>
       <br>
 
-      <label for="fgender">Gender: </label>
+      <label for="fgender">Gender: </label><br>
       <input type="text" id="fgender" name="fgender" value=""></select>
       <br>
 
-      <label for="fwatergoal">Water Goal (Int): </label>
-      <input type="text" id="fwatergoal" id="fwatergoal" name="fwatergoal" value="">
-      <br><br>
+      
 
-      <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
+      <br><input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
       
     </form>`;
 
@@ -368,14 +373,14 @@ const addDrinkWaterVisual = () => {
   // grab CSS property and increment .water[height] by ~10px each time
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
-  water.style.height = `${height - 19}px`;
+  water.style.height = `${height - 23}px`;
 };
 
 const deleteDrinkWaterVisual = (user) => {
   // grab CSS property and increment .water[height] by ~10px each time
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
-  water.style.height = `${height + 19}px`;
+  water.style.height = `${height + 23}px`;
   waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
 };
 

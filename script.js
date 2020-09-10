@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("water-bottle-container").style.display = "none";
   document.getElementById("update-profile").style.display = "none";
+  document.getElementById("d-drink-container").style.display = "none";
   // waterFacts();
+ 
   let success = false;
   while (!success) {
     success = login();
@@ -31,16 +33,13 @@ const login = () => {
             let page = document.querySelector(".content");
             let landingDiv = document.createElement("div");
             landingDiv.className =
-              "alert alert-success alert-dismissible fade show";
+              "alert alert-success";
             page.appendChild(landingDiv);
             foundUser = user;
             return_value = true;
             landingDiv.innerHTML = "";
-            landingDiv.innerHTML = `<div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <strong>Login Successful, Welcome, ${user.name}!</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            landingDiv.innerHTML = `<div class="alert alert-primary" role="alert">
+            <strong>Login Successful. Welcome to Hydr8, ${user.name}!</strong>
           </div>`;
 
             renderProfile(foundUser); // loads user profile information
@@ -78,6 +77,14 @@ function toggleContent() {
 
   let circle = document.getElementById("circle");
   circle.style.display = "none";
+
+  let deleteContainer = document.getElementById("d-drink-container")
+  if (deleteContainer.style.display === "none") {
+    deleteContainer.style.display = "block";
+  } else {
+    deleteContainer.style.display = "none";
+  }
+
 }
 
 // after sign in hide profile login
@@ -206,6 +213,7 @@ const findWaterCups = (user) => {
 };
 
 const renderWaterCups = (watercups, user) => {
+  
   // for each watercup
   //   console.log(watercups);
   // render watercups onto DOM
@@ -235,6 +243,7 @@ deleteBtn.className = "delete-button"
 };
 
 const deleteDrink = (e, watercups, user) => {
+  
   // backend for delete drink
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",

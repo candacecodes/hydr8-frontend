@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("water-bottle-container").style.display = "none";
   document.getElementById("update-profile").style.display = "none";
   document.getElementById("d-drink-container").style.display = "none";
+  document.getElementById("accordion").style.display = "none";
 
-  
   // waterFacts();
  
   let success = false;
@@ -41,23 +41,23 @@ const login = () => {
 
         json.forEach((user) => {
           if (user.name === e.target[0].value) {
-            let page = document.querySelector(".content");
+            let page = document.querySelector(".update-profile");
             let landingDiv = document.createElement("div");
             landingDiv.className =
               "alert alert-success";
-            page.appendChild(landingDiv);
+            page.prepend(landingDiv);
             foundUser = user;
             return_value = true;
             landingDiv.innerHTML = "";
             landingDiv.innerHTML = `<div class="alert alert-primary" role="alert">
             <strong>Login Successful. Welcome to Hydr8, ${user.name}!</strong>
           </div>`;
-
+           
             renderProfile(foundUser); // loads user profile information
             findWaterCups(foundUser); // finds matching waterCups with userID
             addDrinkButton(foundUser);
             toggleContent();
-
+           
             hideProfileContent();
           }
         });
@@ -74,6 +74,8 @@ const login = () => {
       });
   });
 };
+
+
 // this is to toggle / show waterbottle after user logs in
 function toggleContent() {
   let x = document.getElementById("water-bottle-container");
@@ -98,6 +100,13 @@ function toggleContent() {
     deleteContainer.style.display = "block";
   } else {
     deleteContainer.style.display = "none";
+  }
+
+  let facts = document.getElementById("accordion")
+  if (facts.style.display === "none") {
+    facts.style.display = "block";
+  } else {
+    facts.style.display = "none";
   }
 
 }
@@ -333,3 +342,5 @@ const deleteDrinkWaterVisual = () => {
   water.style.height = `${height + 19}px`;
   waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
 };
+
+

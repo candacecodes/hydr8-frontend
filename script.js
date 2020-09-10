@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("update-profile").style.display = "none";
   document.getElementById("d-drink-container").style.display = "none";
 
-  
   // waterFacts();
- 
+
   let success = false;
   while (!success) {
     success = login();
@@ -19,8 +18,7 @@ const addDrinkButton = (user) => {
   addDrinkBtn.className = "btn btn-primary"; // can add this somewhere else
   waterBottleContainer.appendChild(addDrinkBtn);
   addDrinkBtn.addEventListener("click", (e) => addDrink(e, user));
-}
-
+};
 
 let user;
 let waterGoal = document.createElement("h1");
@@ -43,8 +41,7 @@ const login = () => {
           if (user.name === e.target[0].value) {
             let page = document.querySelector(".content");
             let landingDiv = document.createElement("div");
-            landingDiv.className =
-              "alert alert-success";
+            landingDiv.className = "alert alert-success";
             page.appendChild(landingDiv);
             foundUser = user;
             return_value = true;
@@ -71,6 +68,42 @@ const login = () => {
       });
   });
 };
+
+// sign up
+
+let signupForm = document.getElementById("signup-form");
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e);
+
+  if (e.target.name.value === e.target.confirmname.value) {
+    let data = {
+      name: e.target.name.value,
+      age: 10,
+      gender: "Test",
+      watergoal: 10,
+    };
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+      });
+  }
+  // } else {
+  //   let error = document.getElementById("login-error");
+  //   error.innerText = "";
+  //   error.innerText = "Sorry, names do not match. Please try again.";
+  //   signupForm.reset();
+  // }
+});
+
 // this is to toggle / show waterbottle after user logs in
 function toggleContent() {
   let x = document.getElementById("water-bottle-container");
@@ -90,13 +123,12 @@ function toggleContent() {
   let circle = document.getElementById("circle");
   circle.style.display = "none";
 
-  let deleteContainer = document.getElementById("d-drink-container")
+  let deleteContainer = document.getElementById("d-drink-container");
   if (deleteContainer.style.display === "none") {
     deleteContainer.style.display = "block";
   } else {
     deleteContainer.style.display = "none";
   }
-
 }
 
 // after sign in hide profile login
@@ -114,7 +146,6 @@ const renderProfile = (user) => {
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
   editBtn.className = "edit-button";
-  
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";
@@ -123,7 +154,7 @@ const renderProfile = (user) => {
   <br>
 </svg>
  `;
-  
+
   info.innerHTML = `
             <center>
              Name: ${user.name}<br>
@@ -138,7 +169,6 @@ const renderProfile = (user) => {
   waterBottleContainer.prepend(waterGoal);
 
   info.addEventListener("click", (e) => editProfile(e, user));
-   
 };
 
 const editProfile = (e, user) => {
@@ -224,7 +254,6 @@ const findWaterCups = (user) => {
 };
 
 const renderWaterCups = (watercups, user) => {
-  
   // for each watercup
   //   console.log(watercups);
   // render watercups onto DOM
@@ -236,14 +265,13 @@ const renderWaterCups = (watercups, user) => {
   let total = document.createElement("p");
   //   let addBtn = document.createElement("button");
   let deleteBtn = document.createElement("button");
-deleteBtn.className = "delete-button"
+  deleteBtn.className = "delete-button";
 
-  deleteBtn.innerHTML =  ` Delete Cup <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  deleteBtn.innerHTML = ` Delete Cup <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-</svg> `;
+</svg> `; // displays watercup amount
   //   total.innerText = "Watercup Total";
 
-  ; // displays watercup amount
   cup.id = `${watercups.id}`; // id for watercup
   cup.appendChild(deleteBtn); // append delete button to specific cup
   x.appendChild(cup); // append watercup to div
@@ -254,7 +282,6 @@ deleteBtn.className = "delete-button"
 };
 
 const deleteDrink = (e, watercups, user) => {
-  
   // backend for delete drink
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",

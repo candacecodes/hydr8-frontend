@@ -71,6 +71,12 @@ const login = () => {
 
 // sign up
 
+const updateSignUpForm = () => {
+  let div = document.getElementById("signup-content");
+  div.innerHTML = "";
+  div.innerHTML = "Sign up successful, please log in";
+};
+
 let signupForm = document.getElementById("signup-form");
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -95,7 +101,10 @@ signupForm.addEventListener("submit", (e) => {
       .then((json) => {
         console.log(json);
       });
+
+    updateSignUpForm();
   }
+
   // } else {
   //   let error = document.getElementById("login-error");
   //   error.innerText = "";
@@ -112,6 +121,13 @@ function toggleContent() {
   } else {
     x.style.display = "none";
   }
+
+  // let signup = document.getElementById("profile-container");
+  // if (signup.style.display === "none") {
+  //   signup.style.display = "block";
+  // } else {
+  //   signup.style.display = "none";
+  // }
 
   let updateprofile = document.getElementById("update-profile");
   if (updateprofile.style.display === "none") {

@@ -36,7 +36,7 @@ const login = () => {
             foundUser = user;
             return_value = true;
             landingDiv.innerHTML = "";
-            landingDiv.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+            landingDiv.innerHTML = `<div class="alert alert-primary alert-dismissible fade show" role="alert">
             <strong>Login Successful, Welcome, ${user.name}!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -100,8 +100,12 @@ const renderProfile = (user) => {
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";
-  profile.innerHTML = `Your Profile`;
-  addDrinkBtn.innerText = "Add drink";
+  profile.innerHTML = `Your Profile <hr> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  <br>
+</svg>
+ `;
+  addDrinkBtn.innerText = "Add Cup";
   info.innerHTML = `
             <center>
              Name: ${user.name}<br>
@@ -206,21 +210,24 @@ const renderWaterCups = (watercups, user) => {
   //   console.log(watercups);
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
-  let x = document.getElementById("water-bottle-container");
+  let x = document.querySelector(".delete-drink-container");
   let content = document.querySelector(".content"); // for waterbottle
   let div = document.createElement("div");
   let cup = document.createElement("p");
   let total = document.createElement("p");
   //   let addBtn = document.createElement("button");
   let deleteBtn = document.createElement("button");
+deleteBtn.className = "delete-button"
 
-  deleteBtn.innerText = "Delete Drink";
+  deleteBtn.innerHTML =  ` Delete Cup <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+</svg> `;
   //   total.innerText = "Watercup Total";
 
-  cup.innerHTML = `${watercups.amount}`; // displays watercup amount
+  ; // displays watercup amount
   cup.id = `${watercups.id}`; // id for watercup
   cup.appendChild(deleteBtn); // append delete button to specific cup
-  div.appendChild(cup); // append watercup to div
+  x.appendChild(cup); // append watercup to div
   //   div.appendChild(total);
   x.appendChild(div); // append div to .content class
 

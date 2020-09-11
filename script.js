@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("d-drink-container").style.display = "none";
   document.getElementById("accordion").style.display = "none";
   document.getElementById('signup-content').style.display = 'none;'
-
+  
   // waterFacts();
 
   let success = false;
@@ -295,6 +295,7 @@ const renderWaterCups = (watercups, user) => {
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
   let x = document.querySelector(".delete-drink-container");
+  
   let content = document.querySelector(".content"); // for waterbottle
   let div = document.createElement("div");
   let cup = document.createElement("p");
@@ -369,7 +370,7 @@ const addDrink = (e, user) => {
 
 const decreaseWaterGoal = (user) => {
   if (waterGoal.innerText.includes(" 0")) {
-    waterGoal.innerText = "Water Goal Met";
+    waterGoal.innerHTML = "Water Goal Met<hr><br>";
   } else {
     waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal -= 1)} Cups </br><br></center>`;
   }

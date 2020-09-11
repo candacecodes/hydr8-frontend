@@ -39,21 +39,18 @@ const login = () => {
       .then((json) => {
         let foundUser;
 
-        json.forEach((user) => {
-          if (user.name === e.target[0].value) {
+        json.forEach((u) => {
+          if (u.name === e.target[0].value) {
             
          
-            foundUser = user;
-            console.log("hey", user)
+            
+            
             return_value = true;
+            foundUser = u
+           
             
            
-            renderProfile(foundUser); // loads user profile information
-            findWaterCups(foundUser); // finds matching waterCups with userID
-            addDrinkButton(foundUser);
-            toggleContent();
-           
-            hideProfileContent();
+            
           }
         });
         if (!foundUser) {
@@ -62,6 +59,14 @@ const login = () => {
           error.innerText =
             "Sorry, name is not found. Please try again or sign up.";
           loginForm.reset();
+        }
+        else {
+          user = foundUser
+          renderProfile(); // loads user profile information
+            findWaterCups(); // finds matching waterCups with userID
+            addDrinkButton();
+            toggleContent();
+            hideProfileContent();
         }
       });
   });
@@ -176,7 +181,7 @@ function hideProfileContent() {
 
 //signup function
 
-const renderProfile = (user) => {
+const renderProfile = () => {
   console.log(user);
   let waterBottleContainer = document.getElementById("water-bottle-container");
   let profile = document.getElementById("update-profile");
@@ -221,7 +226,7 @@ description.after(logo)
   info.addEventListener("click", (e) => editProfile(e, user));
 };
 
-const editProfile = (e, user) => {
+const editProfile = (e) => {
   //   console.log(user);
   let profile = document.getElementById("update-profile");
   let info = document.createElement("form");
@@ -253,10 +258,10 @@ const editProfile = (e, user) => {
 
   profile.appendChild(info);
   //   let submit = document.getElementById("submit");
-  info.addEventListener("submit", (e) => updateProfile(e, user));
+  info.addEventListener("submit", (e) => updateProfile(e));
 };
 
-const updateProfile = (e, user) => {
+const updateProfile = (e) => {
   e.preventDefault();
   //   console.log(user);
 
@@ -282,7 +287,7 @@ const updateProfile = (e, user) => {
 
 // WaterCup Info
 
-const findWaterCups = (user) => {
+const findWaterCups = () => {
   console.log("dan", user)
   // fetch to find watercups
   fetch(`http://localhost:3000/water_cups`)
@@ -296,7 +301,7 @@ const findWaterCups = (user) => {
           fetch(`http://localhost:3000/water_cups/${watercup.id}`)
             .then((res) => res.json())
             .then((json) => {
-              renderWaterCups(json, user);
+              renderWaterCups(json);
               //   renderAppointments(json, user); // puts appts onto appointment list
             });
         }
@@ -304,7 +309,7 @@ const findWaterCups = (user) => {
     });
 };
 
-const renderWaterCups = (watercups, user) => {
+const renderWaterCups = (watercups) => {
   // for each watercup
   console.log("luc", user)
   //   console.log(watercups);
@@ -334,7 +339,7 @@ const renderWaterCups = (watercups, user) => {
   deleteBtn.addEventListener("click", (e) => deleteDrink(e, watercups, user));
 };
 
-const deleteDrink = (e, watercups, user) => {
+const deleteDrink = (e, watercups) => {
   console.log("heloo", user)
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",
@@ -360,11 +365,11 @@ const deleteDrink = (e, watercups, user) => {
 //   method: "DELETE",
 //     });
 
-const addDrink = (e, user) => {
+const addDrink = (e) => {
   //backend for add drink
   addDrinkWaterVisual();
 
-  decreaseWaterGoal(user);
+  decreaseWaterGoal();
 
   let data = {
     amount: 1,
@@ -384,7 +389,7 @@ const addDrink = (e, user) => {
     .then((json) => renderWaterCups(json));
 };
 
-const decreaseWaterGoal = (user) => {
+const decreaseWaterGoal = () => {
   if (waterGoal.innerText.includes(" 0")) {
     waterGoal.innerHTML = `<center><div class='alert alert-primary'role='alert'>
     <strong>Water Goal Met<hr><br></center></strong><br> 
@@ -403,13 +408,15 @@ const addDrinkWaterVisual = () => {
   water.style.height = `${height - 23}px`;
 };
 
-const deleteDrinkWaterVisual = (user) => {
+const deleteDrinkWaterVisual = () => {
   // grab CSS property and increment .water[height] by ~10px each time
   console.log("hi", user)
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
   water.style.height = `${height + 23}px`;
-  // waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
+  waterGoal.innerHTML = `<center><div  class='alert alert-primary'role='alert'>
+  <strong>Water Remaining: ${(user.watergoal += 1)} Cups <hr></center></strong><br> 
+</div>`;
   //grab water remaining value element 
   //grab integer value and parse it into integer
   //increase integer by 1

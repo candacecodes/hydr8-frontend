@@ -188,7 +188,6 @@ const renderProfile = () => {
   let info = document.createElement("div");
   let editBtn = document.createElement("button");
   editBtn.className = "edit-button";
-
   waterGoal.innerHTML = `<center><div class='alert alert-primary'role='alert'>
   <strong>Water Remaining: <br> ${user.watergoal} Cups<br></center></strong><br> 
 </div>`;
@@ -200,7 +199,6 @@ const renderProfile = () => {
   <br>
 </svg>
  `;
-
   info.innerHTML = `
             <center>
              Name: ${user.name}<br>
@@ -211,18 +209,17 @@ const renderProfile = () => {
          `;
   profile.appendChild(info); // append info profile header div
   info.appendChild(editBtn);
-  let description = document.createElement("div")
+  let description = document.createElement("div");
   description.innerHTML = `<hr> <div class='alert alert-primary'role='alert'>
   <strong>Why Use Hydr8?</strong><br> Hydration is important. It can be easy to dismiss drinking enough water during the day, especially with a busy schedule. We are here to make sure your hitting the recommened daily water intake to keep you healthy and fueled for the day. It's as simple as 13 cups. 
-</div>`
-editBtn.after(description)
-let logo = document.createElement('img')
-logo.className= "img"
-logo.src ="finalhydr8logo.png" 
-description.after(logo)
+</div>`;
+  editBtn.after(description);
+  let logo = document.createElement("img");
+  logo.className = "img";
+  logo.src = "finalhydr8logo.png";
+  description.after(logo);
   // waterBottleContainer.appendChild(addDrinkBtn);
   waterBottleContainer.prepend(waterGoal);
-
   info.addEventListener("click", (e) => editProfile(e, user));
 };
 
@@ -233,9 +230,9 @@ const editProfile = (e) => {
   let editBtn = document.createElement("button");
   editBtn.innerText = "Submit";
   profile.innerText = "Update Profile";
-    info.innerHTML = ``;
+  info.innerHTML = ``;
 
-  info.innerHTML = `
+  info.innerHTML = `<div class='alert alert-primary'role='alert'> 
       <label for="fname">Name:</label><br> 
       <input type="text" id="fname" name="fname" value="">
       <br>
@@ -254,7 +251,7 @@ const editProfile = (e) => {
 
       <br><input id="submit" name ="submit" class="btn btn-primary" type="submit" value="Submit">
       
-    </form>`;
+    </form></div>`;
 
   profile.appendChild(info);
   //   let submit = document.getElementById("submit");

@@ -214,9 +214,9 @@ const editProfile = (e, user) => {
   let profile = document.getElementById("update-profile");
   let info = document.createElement("form");
   let editBtn = document.createElement("button");
-  editBtn.innerText = "Submit Update";
+  editBtn.innerText = "Submit";
   profile.innerText = "Update Profile";
-  //   info.innerHTML = ``;
+    info.innerHTML = ``;
 
   info.innerHTML = `
       <label for="fname">Name:</label><br> 
@@ -230,10 +230,12 @@ const editProfile = (e, user) => {
       <label for="fgender">Gender: </label><br>
       <input type="text" id="fgender" name="fgender" value=""></select>
       <br>
-
+      <label for="fwatergoal">Watergoal: </label><br>
+      <input type="text" id="fwatergoal" name="fwatergoal" readonly = "readonly" value="13"></select>
+      <br>
       
 
-      <br><input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
+      <br><input id="submit" name ="submit" class="btn btn-primary" type="submit" value="Submit">
       
     </form>`;
 

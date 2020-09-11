@@ -204,7 +204,7 @@ const renderProfile = () => {
              Name: ${user.name}<br>
              Age: ${user.age}<br>
              Gender: ${user.gender}<br>
-             Water Goal: ${user.watergoal}<br>
+             
             </center>
          `;
   profile.appendChild(info); // append info profile header div
@@ -229,7 +229,7 @@ const editProfile = (e) => {
   let info = document.createElement("form");
   let editBtn = document.createElement("button");
   editBtn.innerText = "Submit";
-  profile.innerText = "Update Profile";
+  profile.innerHTML = `<div class='alert alert-primary'role='alert'>Update Profile</div>`;
   info.innerHTML = ``;
 
   info.innerHTML = `<div class='alert alert-primary'role='alert'> 
@@ -244,13 +244,10 @@ const editProfile = (e) => {
       <label for="fgender">Gender: </label><br>
       <input type="text" id="fgender" name="fgender" value=""></select>
       <br>
-      <label for="fwatergoal">Watergoal: </label><br>
-      <input type="text" id="fwatergoal" name="fwatergoal" readonly = "readonly" value="13"></select>
-      <br>
       
 
       <br><input id="submit" name ="submit" class="btn btn-primary" type="submit" value="Submit">
-      
+      <img id="img" src= "
     </form></div>`;
 
   profile.appendChild(info);
@@ -266,7 +263,7 @@ const updateProfile = (e) => {
     name: e.target.fname.value,
     age: e.target.fage.value,
     gender: e.target.fgender.value,
-    watergoal: e.target.fwatergoal.value,
+    watergoal: 13
   };
 
   fetch(`http://localhost:3000/users/${user.id}`, {

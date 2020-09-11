@@ -27,7 +27,6 @@
 #accordion {
 width: 650px;
 margin-right:20px;
-
 }
 h1 {
   color: black;
@@ -37,6 +36,26 @@ h1 {
   margin: 0;
 }
 
+#fname {
+border: 1px solid white;
+border-radius: 4px;
+box-shadow: 3px 3px 3px #888;
+}
+#fage {
+  border: 1px solid white;
+border-radius: 4px;
+box-shadow: 3px 3px 3px #888;
+}
+#fgender {
+  border: 1px solid white;
+border-radius: 4px;
+box-shadow: 3px 3px 3px #888;
+}
+#fwatergoal {
+  border: 1px solid white;
+border-radius: 4px;
+box-shadow: 3px 3px 3px #888;
+}
 .update-profile {
   background: white;
   box-shadow: 2px 2px 10px 2px #888;
@@ -47,7 +66,7 @@ h1 {
   left: 5%;
   padding: 10px;
   width: 500px;
-  height: 785px;
+  height: 825px;
   font-size: 20px;
   text-align: center;
 }

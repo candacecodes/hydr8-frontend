@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.getElementById("update-profile").style.display = "none";
   document.getElementById("d-drink-container").style.display = "none";
   document.getElementById("accordion").style.display = "none";
-  document.getElementById('signup-content').style.display = 'none;'
-  
+  document.getElementById("signup-content").style.display = "none;";
+
   // waterFacts();
 
   let success = false;
@@ -26,7 +26,7 @@ let user;
 let waterGoal = document.createElement("h1");
 waterGoal.className = "remainder-header";
 waterGoal.id = "waterRemainder";
-console.log("sup", user)
+console.log("sup", user);
 // login function
 const login = () => {
   let return_value = false;
@@ -41,16 +41,8 @@ const login = () => {
 
         json.forEach((u) => {
           if (u.name === e.target[0].value) {
-            
-         
-            
-            
             return_value = true;
-            foundUser = u
-           
-            
-           
-            
+            foundUser = u;
           }
         });
         if (!foundUser) {
@@ -59,14 +51,13 @@ const login = () => {
           error.innerText =
             "Sorry, name is not found. Please try again or sign up.";
           loginForm.reset();
-        }
-        else {
-          user = foundUser
+        } else {
+          user = foundUser;
           renderProfile(); // loads user profile information
-            findWaterCups(); // finds matching waterCups with userID
-            addDrinkButton();
-            toggleContent();
-            hideProfileContent();
+          findWaterCups(); // finds matching waterCups with userID
+          addDrinkButton();
+          toggleContent();
+          hideProfileContent();
         }
       });
   });
@@ -76,17 +67,16 @@ const login = () => {
 
 const updateSignUpForm = () => {
   let div = document.getElementById("signup-content");
-  let success = document.createElement("div")
- success.id = "success-alert"
- success.innerHTML = `<div class="alert alert-primary alert-dismissible fade show" role="alert">
+  let success = document.createElement("div");
+  success.id = "success-alert";
+  success.innerHTML = `<div class="alert alert-primary alert-dismissible fade show" role="alert">
  <strong>Sign Up Sucess!</strong> Log in, start hydrating.
  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
    <span aria-hidden="true">&times;</span>
  </button>
 </div>`;
-div.after(success)
+  div.after(success);
   div.innerHTML = "";
- 
 };
 
 let signupForm = document.getElementById("signup-form");
@@ -158,14 +148,14 @@ function toggleContent() {
     deleteContainer.style.display = "none";
   }
 
-  let facts = document.getElementById("accordion")
+  let facts = document.getElementById("accordion");
   if (facts.style.display === "none") {
     facts.style.display = "block";
   } else {
     facts.style.display = "none";
   }
 
-  let signup = document.getElementById('signup-content')
+  let signup = document.getElementById("signup-content");
   if (signup.style.display === "none") {
     signup.style.display = "block";
   } else {
@@ -263,7 +253,7 @@ const updateProfile = (e) => {
     name: e.target.fname.value,
     age: e.target.fage.value,
     gender: e.target.fgender.value,
-    watergoal: 13
+    watergoal: 13,
   };
 
   fetch(`http://localhost:3000/users/${user.id}`, {
@@ -276,13 +266,56 @@ const updateProfile = (e) => {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((json) => renderProfile(json));
+    .then((json) => renderProfileEdit(json));
+};
+const renderProfileEdit = (json) => {
+  // need to select values from edit profile
+  // update DOM optimistically
+  // glitchy ==> need to improve
+  console.log(json);
+  let waterBottleContainer = document.getElementById("water-bottle-container");
+  let profile = document.getElementById("update-profile");
+  let info = document.createElement("div");
+  let editBtn = document.createElement("button");
+  editBtn.className = "edit-button";
+  waterGoal.innerHTML = `<center><div class='alert alert-primary'role='alert'>
+    <strong>Water Remaining: <br> ${user.watergoal} Cups<br></center></strong><br> 
+  </div>`;
+  editBtn.innerText = "Edit Profile";
+  profile.innerHTML = `<div class="alert alert-primary" role="alert">
+    <strong>Login Successful. Welcome to Hydr8, ${user.name}!</strong>
+  </div> Your Profile <hr> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    <br>
+  </svg>
+   `;
+  info.innerHTML = `
+              <center>
+               Name: Lucas<br>
+               Age: 22 <br>
+               Gender: Male<br>
+              </center>
+           `;
+  profile.appendChild(info); // append info profile header div
+  info.appendChild(editBtn);
+  let description = document.createElement("div");
+  description.innerHTML = `<hr> <div class='alert alert-primary'role='alert'>
+    <strong>Why Use Hydr8?</strong><br> Hydration is important. It can be easy to dismiss drinking enough water during the day, especially with a busy schedule. We are here to make sure your hitting the recommened daily water intake to keep you healthy and fueled for the day. It's as simple as 13 cups. 
+  </div>`;
+  editBtn.after(description);
+  let logo = document.createElement("img");
+  logo.className = "img";
+  logo.src = "finalhydr8logo.png";
+  description.after(logo);
+  // waterBottleContainer.appendChild(addDrinkBtn);
+  waterBottleContainer.prepend(waterGoal);
+  info.addEventListener("click", (e) => editProfile(e, user));
 };
 
 // WaterCup Info
 
 const findWaterCups = () => {
-  console.log("dan", user)
+  console.log("dan", user);
   // fetch to find watercups
   fetch(`http://localhost:3000/water_cups`)
     .then((res) => res.json())
@@ -305,12 +338,12 @@ const findWaterCups = () => {
 
 const renderWaterCups = (watercups) => {
   // for each watercup
-  console.log("luc", user)
+  console.log("luc", user);
   //   console.log(watercups);
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
   let x = document.querySelector(".delete-drink-container");
-  
+
   let content = document.querySelector(".content"); // for waterbottle
   let div = document.createElement("div");
   let cup = document.createElement("p");
@@ -334,7 +367,7 @@ const renderWaterCups = (watercups) => {
 };
 
 const deleteDrink = (e, watercups) => {
-  console.log("heloo", user)
+  console.log("heloo", user);
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",
   }).then((res) => {
@@ -404,17 +437,15 @@ const addDrinkWaterVisual = () => {
 
 const deleteDrinkWaterVisual = () => {
   // grab CSS property and increment .water[height] by ~10px each time
-  console.log("hi", user)
+  console.log("hi", user);
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
   water.style.height = `${height + 23}px`;
   waterGoal.innerHTML = `<center><div  class='alert alert-primary'role='alert'>
   <strong>Water Remaining: ${(user.watergoal += 1)} Cups <hr></center></strong><br> 
 </div>`;
-  //grab water remaining value element 
+  //grab water remaining value element
   //grab integer value and parse it into integer
   //increase integer by 1
-  console.log("hi", user.watergoal)
+  console.log("hi", user.watergoal);
 };
-
-

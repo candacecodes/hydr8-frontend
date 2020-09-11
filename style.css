@@ -1,35 +1,40 @@
 #signup-content {
-  background: #f2f2f2;
+ 
   border-radius: 2em;
   position: relative;
-  /* top: 95%; */
-  /* left: 40%; */
+  top: -150%;
+  left: 50%;
   margin: 0 auto;
   padding: 10px;
   width: 300px;
   height: 100px;
-  box-shadow: 3px 3px 3px #888;
+  /* box-shadow: 3px 3px 3px #888; */
+}
+#success-alert {
+  position: relative;
+  left: -50%;
+  top: -135%;
 }
 
+
 #accordion {
-width: 500px;
-float: right
-;
+width: 600px;
+margin-right:20px;
 }
 h1 {
   color: black;
   text-align: center;
 }
 #login-buttons {
-  margin-left: 90px;
+  margin: 0;
 }
 
 .update-profile {
   background: white;
   box-shadow: 2px 2px 10px 2px #888;
   border-radius: 8px;
-
-  
+  margin-right: 50px;
+  margin-left: 20px;
   top: 38%;
   left: 5%;
   padding: 10px;
@@ -37,13 +42,7 @@ h1 {
   font-size: 20px;
   text-align: center;
 }
-.alert {
-  position: fixed;
-  top: 30%;
-  left: 5%;
-  box-shadow: 3px 3px 3px #888;
-  padding-right: 85px;
-}
+
 .facts-card {
   width: 500px;
   float: right;
@@ -57,6 +56,7 @@ h1 {
 }
 
 .header {
+  
   padding: 50px;
   height: 30%;
   width: 30%; /** Use 100% to fill the width of the page **/
@@ -65,12 +65,14 @@ h1 {
   left: 0;
   right: 0;
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .img-banner {
   display: block;
   margin: 0 auto;
   width: 400px;
+ 
 }
 .content {
   /* position: absolute; */
@@ -88,7 +90,7 @@ h1 {
 }
 
 .profile-container {
-  background: #f2f2f2;
+ 
     border-radius: 2em;
     position: relative;
     /* top: 95%; */
@@ -97,7 +99,7 @@ h1 {
     padding: 10px;
     width: 300px;
     height: 100px;
-    box-shadow: 3px 3px 3px #888;
+    /* box-shadow: 3px 3px 3px #888; */
 }
 
 .circle {
@@ -687,11 +689,11 @@ body {
 
 .x2 {
   -webkit-animation: animateBubble 20s linear infinite,
-    sideWays 4s ease-in-out infinite alternate;
+    sideWays 2s ease-in-out infinite alternate;
   -moz-animation: animateBubble 20s linear infinite,
-    sideWays 4s ease-in-out infinite alternate;
+    sideWays 2s ease-in-out infinite alternate;
   animation: animateBubble 20s linear infinite,
-    sideWays 4s ease-in-out infinite alternate;
+    sideWays 2s ease-in-out infinite alternate;
 
   left: 5%;
   top: 80%;
@@ -815,11 +817,11 @@ body {
 
 .x10 {
   -webkit-animation: animateBubble 26s linear infinite,
-    sideWays 2s ease-in-out infinite alternate;
+    sideWays 0s ease-in-out infinite alternate;
   -moz-animation: animateBubble 26s linear infinite,
-    sideWays 2s ease-in-out infinite alternate;
+    sideWays 0s ease-in-out infinite alternate;
   animation: animateBubble 26s linear infinite,
-    sideWays 2s ease-in-out infinite alternate;
+    sideWays 0s ease-in-out infinite alternate;
 
   left: 80%;
   top: 80%;

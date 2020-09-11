@@ -41,16 +41,11 @@ const login = () => {
 
         json.forEach((user) => {
           if (user.name === e.target[0].value) {
-            let page = document.querySelector(".update-profile");
-            let landingDiv = document.createElement("div");
-            landingDiv.className = "alert alert-success";
-            page.appendChild(landingDiv);
+            
+         
             foundUser = user;
             return_value = true;
-            landingDiv.innerHTML = "";
-            landingDiv.innerHTML = `<div class="alert alert-primary" role="alert">
-            <strong>Login Successful. Welcome to Hydr8, ${user.name}!</strong>
-          </div>`;
+            
            
             renderProfile(foundUser); // loads user profile information
             findWaterCups(foundUser); // finds matching waterCups with userID
@@ -75,8 +70,17 @@ const login = () => {
 
 const updateSignUpForm = () => {
   let div = document.getElementById("signup-content");
+  let success = document.createElement("div")
+ success.id = "success-alert"
+ success.innerHTML = `<div class="alert alert-primary alert-dismissible fade show" role="alert">
+ <strong>Sign Up Sucess!</strong> Log in start hydrating.
+ <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+ </button>
+</div>`;
+div.after(success)
   div.innerHTML = "";
-  div.innerHTML = "Sign up successful, please log in";
+ 
 };
 
 let signupForm = document.getElementById("signup-form");
@@ -181,7 +185,9 @@ const renderProfile = (user) => {
 
   waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
   editBtn.innerText = "Edit Profile";
-  profile.innerHTML = `Your Profile <hr> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  profile.innerHTML = `<div class="alert alert-primary" role="alert">
+  <strong>Login Successful. Welcome to Hydr8, ${user.name}!</strong>
+</div> Your Profile <hr> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
   <br>
 </svg>

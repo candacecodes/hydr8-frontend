@@ -21,10 +21,13 @@
   width: 270px;
   margin-top: 10px;
 }
-
+.card {
+  box-shadow: 3px 3px 3px #888;
+}
 #accordion {
 width: 650px;
 margin-right:20px;
+
 }
 h1 {
   color: black;
@@ -77,7 +80,7 @@ h1 {
 .img-banner {
   display: block;
   margin: 0 auto;
-  width: 400px;
+  width: 500px;
   margin-bottom:50x;
  
 }
@@ -87,6 +90,7 @@ h1 {
   height: 100%;
   border-radius: 3px;
   padding: 20px;
+  padding-top: 100px;
   margin-top: 200px;
   font-family: "Helvetica Neue";
   font-size: 1rem;
@@ -94,6 +98,7 @@ h1 {
   line-height: 1.5;
   display: grid;
   grid-template-columns:  1fr 1fr 1fr 1fr;
+  
 }
 
 .profile-container {
@@ -231,9 +236,10 @@ body {
 .remainder-header {
   color: white;
   font-size: 28px;
+  
 }
 .water-bottle-container {
-  background-color: #ddd;
+  background-color:#cce5ff;
   padding: 20px;
   border: 1px solid lightgrey;
   border-radius: 3em;

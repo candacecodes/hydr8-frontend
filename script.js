@@ -184,7 +184,9 @@ const renderProfile = (user) => {
   let editBtn = document.createElement("button");
   editBtn.className = "edit-button";
 
-  waterGoal.innerHTML = `<center>Water Remaining: <br> ${user.watergoal} Cups </br><br></center>`;
+  waterGoal.innerHTML = `<center><div class='alert alert-primary'role='alert'>
+  <strong>Water Remaining: <br> ${user.watergoal} Cups<br></center></strong><br> 
+</div>`;
   editBtn.innerText = "Edit Profile";
   profile.innerHTML = `<div class="alert alert-primary" role="alert">
   <strong>Login Successful. Welcome to Hydr8, ${user.name}!</strong>
@@ -384,9 +386,13 @@ const addDrink = (e, user) => {
 
 const decreaseWaterGoal = (user) => {
   if (waterGoal.innerText.includes(" 0")) {
-    waterGoal.innerHTML = "Water Goal Met<hr><br>";
+    waterGoal.innerHTML = `<center><div class='alert alert-primary'role='alert'>
+    <strong>Water Goal Met<hr><br></center></strong><br> 
+  </div>`;
   } else {
-    waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal -= 1)} Cups </br><br></center>`;
+    waterGoal.innerHTML = `<center><div  class='alert alert-primary'role='alert'>
+    <strong>Water Remaining: ${(user.watergoal -= 1)} Cups <hr></center></strong><br> 
+  </div>`;
   }
 };
 
@@ -403,7 +409,10 @@ const deleteDrinkWaterVisual = (user) => {
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
   water.style.height = `${height + 23}px`;
-  waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
+  // waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
+  //grab water remaining value element 
+  //grab integer value and parse it into integer
+  //increase integer by 1
   console.log("hi", user.watergoal)
 };
 

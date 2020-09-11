@@ -26,7 +26,7 @@ let user;
 let waterGoal = document.createElement("h1");
 waterGoal.className = "remainder-header";
 waterGoal.id = "waterRemainder";
-
+console.log("sup", user)
 // login function
 const login = () => {
   let return_value = false;
@@ -44,6 +44,7 @@ const login = () => {
             
          
             foundUser = user;
+            console.log("hey", user)
             return_value = true;
             
            
@@ -73,7 +74,7 @@ const updateSignUpForm = () => {
   let success = document.createElement("div")
  success.id = "success-alert"
  success.innerHTML = `<div class="alert alert-primary alert-dismissible fade show" role="alert">
- <strong>Sign Up Sucess!</strong> Log in start hydrating.
+ <strong>Sign Up Sucess!</strong> Log in, start hydrating.
  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
    <span aria-hidden="true">&times;</span>
  </button>
@@ -203,6 +204,15 @@ const renderProfile = (user) => {
          `;
   profile.appendChild(info); // append info profile header div
   info.appendChild(editBtn);
+  let description = document.createElement("div")
+  description.innerHTML = `<hr> <div class='alert alert-primary'role='alert'>
+  <strong>Why Use Hydr8?</strong><br> Hydration is important. It can be easy to dismiss drinking enough water during the day, especially with a busy schedule. We are here to make sure your hitting the recommened daily water intake to keep you healthy and fueled for the day. It's as simple as 13 cups. 
+</div>`
+editBtn.after(description)
+let logo = document.createElement('img')
+logo.className= "img"
+logo.src ="finalhydr8logo.png" 
+description.after(logo)
   // waterBottleContainer.appendChild(addDrinkBtn);
   waterBottleContainer.prepend(waterGoal);
 
@@ -271,6 +281,7 @@ const updateProfile = (e, user) => {
 // WaterCup Info
 
 const findWaterCups = (user) => {
+  console.log("dan", user)
   // fetch to find watercups
   fetch(`http://localhost:3000/water_cups`)
     .then((res) => res.json())
@@ -283,7 +294,7 @@ const findWaterCups = (user) => {
           fetch(`http://localhost:3000/water_cups/${watercup.id}`)
             .then((res) => res.json())
             .then((json) => {
-              renderWaterCups(json);
+              renderWaterCups(json, user);
               //   renderAppointments(json, user); // puts appts onto appointment list
             });
         }
@@ -293,6 +304,7 @@ const findWaterCups = (user) => {
 
 const renderWaterCups = (watercups, user) => {
   // for each watercup
+  console.log("luc", user)
   //   console.log(watercups);
   // render watercups onto DOM
   // need to change .content in html to a better location to append stuff
@@ -321,7 +333,7 @@ const renderWaterCups = (watercups, user) => {
 };
 
 const deleteDrink = (e, watercups, user) => {
-  // backend for delete drink
+  console.log("heloo", user)
   fetch(`http://localhost:3000/water_cups/${watercups.id}`, {
     method: "DELETE",
   }).then((res) => {
@@ -330,7 +342,7 @@ const deleteDrink = (e, watercups, user) => {
     // deleteThisWaterCup.innerText = "deleted watercup";
   });
 
-  deleteDrinkWaterVisual();
+  deleteDrinkWaterVisual(user);
 };
 
 // add event listener to delete button
@@ -387,10 +399,12 @@ const addDrinkWaterVisual = () => {
 
 const deleteDrinkWaterVisual = (user) => {
   // grab CSS property and increment .water[height] by ~10px each time
+  console.log("hi", user)
   let water = document.querySelector(".water");
   let height = water.offsetHeight;
   water.style.height = `${height + 23}px`;
   waterGoal.innerHTML = `<center>Water Remaining: ${(user.watergoal += 1)} Cups </br><br></center>`;
+  console.log("hi", user.watergoal)
 };
 
 

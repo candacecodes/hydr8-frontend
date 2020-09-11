@@ -1,5 +1,4 @@
 #signup-content {
- 
   border-radius: 2em;
   position: relative;
   top: -150%;
@@ -8,17 +7,23 @@
   padding: 10px;
   width: 300px;
   height: 100px;
-  box-shadow: 3px 3px 3px #888;
+  box-shadow: 2px 2px 10px 2px #888;
 }
 #success-alert {
   position: relative;
   left: -50%;
-  top: -135%;
+  top: -130%;
+}
+.alert {
+  box-shadow: 3px 3px 3px #888;
+}
+.img {
+  width: 270px;
+  margin-top: 10px;
 }
 
-
 #accordion {
-width: 600px;
+width: 650px;
 margin-right:20px;
 }
 h1 {
@@ -39,6 +44,7 @@ h1 {
   left: 5%;
   padding: 10px;
   width: 500px;
+  height: 785px;
   font-size: 20px;
   text-align: center;
 }
@@ -100,7 +106,7 @@ h1 {
     padding: 10px;
     width: 300px;
     height: 100px;
-    box-shadow: 3px 3px 3px #888;
+    box-shadow: 2px 2px 10px 2px #888;
 }
 
 .circle {
